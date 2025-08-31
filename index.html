@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aditya Kulkarni — Portfolio</title>
+    <link rel="icon" type="image/png" href="./logos/AK_Favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* Small premium touches */
+        .glass-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(6px);
+        }
+
+        .social-icon {
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px) scale(1.06);
+            box-shadow: 0 8px 24px rgba(57, 16, 110, 0.14);
+        }
+
+        .section-title {
+            letter-spacing: -0.02em;
+        }
+
+        /* Publication list scroll for long lists */
+        .pub-list {
+            max-height: 420px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-b from-white to-gray-50 text-gray-800 leading-relaxed">
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div
+                    class="rounded-full w-12 h-12 bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white font-semibold shadow-lg">
+                    AK</div>
+                <div>
+                    <h1 class="text-lg font-semibold">Aditya Kulkarni</h1>
+                    <p class="text-xs text-gray-500">Ph.D. @ IIT Dharwad</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 text-sm">
+                <a href="#about" class="hover:text-indigo-600">About</a>
+                <a href="#publications" class="hover:text-indigo-600">Publications</a>
+                <a href="#contributions" class="hover:text-indigo-600">Contributions</a>
+                <a href="#recognitions" class="hover:text-indigo-600">Recognitions</a>
+                <a href="#ta" class="hover:text-indigo-600">TAs</a>
+                <a href="#gallery" class="hover:text-indigo-600">Gallery</a>
+                <a href="#contact"
+                    class="px-3 py-2 bg-indigo-600 text-white rounded-lg shadow hover:brightness-105">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <button x-data @click="$dispatch('open-mobile')" class="p-2 rounded-md bg-gray-100"><i
+                        class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <!-- About Section: Premium Layout -->
+        <section id="about" class="relative scroll-mt-24 mt-2 rounded-2xl overflow-hidden">
+            <!-- Background Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-indigo-300 via-white to-indigo-300"></div>
+            <div class="absolute inset-0 bg-white/70"></div> <!-- overlay for readability -->
+
+            <div
+                class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- Text Content -->
+                <div class="col-span-2 flex flex-col justify-center space-y-2.5">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900">
+                        WhoAmI: <span class="text-indigo-800">Aditya Kulkarni</span>
+                    </h2>
+
+                    <!-- Qualifications -->
+                    <div class="pl-2">
+                        <h4 class="font-bold text-indigo-900 mb-1">Qualifications</h4>
+                        <ul class="list-disc list-inside pl-4 text-indigo-600 space-y-1">
+                            <li>
+                                <span class="font-semibold">Ph.D.</span> in Dept. of CSE,
+                                Indian Institute of Technology (IIT) Dharwad
+                                <span class="text-sm text-gray-500 ml-2">(2022-Present)</span>
+                            </li>
+                            <li>
+                                <span class="font-semibold">M.Tech</span> in Dept. of CSE,
+                                National Institute of Technology (NIT) Goa
+                                <span class="text-sm text-gray-500 ml-2">(2020-2022)</span>
+                            </li>
+                            <li>
+                                <span class="font-semibold">B.E.</span> in Dept. of CSE,
+                                Sri Jayachamarajendra College of Engineering, Mysore
+                                <span class="text-sm text-gray-500 ml-2">(2015-2019)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Area of Research -->
+                    <div class="pl-2">
+                        <h4 class="font-bold text-indigo-900 mb-1">Area of Research</h4>
+                        <div class="pl-6 text-gray-700 text-base leading-relaxed text-justify mt-1">
+                            My work spans the field of <span class="font-semibold text-indigo-600">cybersecurity</span>,
+                            with two core directions: strengthening <span class="font-semibold text-indigo-600">web
+                                security</span>
+                            through phishing webpage detection, and advancing
+                            <span class="font-semibold text-indigo-600">network security</span> via DNS security
+                            enhancements
+                            and privacy-preserving protocols. Beyond these, I explore
+                            <span class="font-semibold text-purple-600">AI-driven cybersecurity</span> and
+                            <span class="font-semibold text-purple-600">cryptography</span>, aiming to design defenses
+                            that are practical, resilient, and adaptive to emerging threats.
+                        </div>
+                    </div>
+
+                    <!-- Awards -->
+                    <div class="pl-2">
+                        <h4 class="font-bold text-indigo-900 mb-1">Awards & Recognition</h4>
+                        <ul class="list-disc list-inside pl-4 text-indigo-600 space-y-0.5">
+                            <li><span class="font-semibold">IEEE/ACM COMSNETS Best Graduate Forum Honorable Mention
+                                    Award 2024</span></li>
+                            <li><span class="font-semibold">Director's Gold Medal</span> at NIT Goa for the highest
+                                M.Tech academic distinction</li>
+                        </ul>
+                    </div>
+
+                    <!-- Journey -->
+                    <div class="pl-2">
+                        <h4 class="font-bold text-indigo-900 mb-1">Journey</h4>
+                        <div class="pl-6 text-gray-700 text-base leading-relaxed text-justify mt-1">
+                            My research journey has been centered on designing solutions that are practical,
+                            robust, and resilient against emerging cyber threats.
+                            Explore my work and projects to walk through the milestones and contributions that
+                            shaped this path.
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 mt-6">
+                        <!-- Email -->
+                        <a href="mailto:aditya.kulkarni@iitdh.ac.in"
+                            class="group inline-flex items-center gap-3 px-5 py-2 rounded-xl bg-gradient-to-r from-purple-800 to-indigo-600 text-white shadow-md hover:shadow-xl hover:scale-105 transition">
+                            <i class="fa-solid fa-envelope text-white"></i> <span
+                                class="hidden sm:inline text-sm font-medium">Email</span>
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/aditya-kulkarni-172643150" target="_blank" rel="noopener"
+                            class="group inline-flex items-center gap-3 px-5 py-2 rounded-xl bg-gradient-to-r from-blue-800 to-cyan-600 text-white shadow-md hover:shadow-xl hover:scale-105 transition">
+                            <i class="fa-brands fa-linkedin text-white"></i> <span
+                                class="hidden sm:inline text-sm font-medium">LinkedIn</span>
+                        </a>
+                        <!-- GitHub -->
+                        <a href="https://github.com/LetsBeSecure" target="_blank" rel="noopener"
+                            class="group inline-flex items-center gap-3 px-5 py-2 rounded-xl bg-gradient-to-r from-gray-800 to-gray-600 text-white shadow-md hover:shadow-xl hover:scale-105 transition">
+                            <i class="fa-brands fa-github text-white"></i> <span
+                                class="hidden sm:inline text-sm font-medium">GitHub</span>
+                        </a>
+                        <!-- Google Scholar -->
+                        <a href="https://scholar.google.com/citations?user=cj3PTEkAAAAJ&hl" target="_blank"
+                            rel="noopener"
+                            class="group inline-flex items-center gap-3 px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-500 text-white shadow-md hover:shadow-xl hover:scale-105 transition">
+                            <i class="fa-solid fa-graduation-cap text-white"></i> <span
+                                class="hidden sm:inline text-sm font-medium">Scholar</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Image integrated with text -->
+                <div class="col-span-1 flex justify-center md:justify-center">
+                    <div
+                        class="w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border border-gray-100 transform transition-transform duration-500 hover:scale-105">
+                        <img src="./profiles_photos/Aditya_Kulkarni.jpg" alt="Aditya Kulkarni"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Contributions -->
+        <section id="contributions"
+            class="py-12 bg-gradient-to-tr from-blue-100 via-black-100 to-gray-300 scroll-mt-24 mt-12 rounded-2xl px-4 shadow-lg">
+            <div class="max-w-7xl mx-auto">
+                <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-8 relative inline-block">
+                    <span class="px-4 py-2 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-flask text-purple-500"></i>
+                        Research Contributions
+                    </span>
+                </h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Phish-Blitz Web App -->
+                    <div
+                        class="bg-gradient-to-tr from-green-200 via-lime-100 to-emerald-100 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-xl transition-all">
+                        <div class="h-20 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-rocket text-green-600 text-5xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 text-center mb-2">
+                            Phish-Blitz Web App
+                        </h4>
+                        <p class="text-gray-700 text-center mb-3">
+                            Phishing and Legitimate webpage resource collector.
+                        </p>
+                        <a href="https://github.com/Duddu-Hriday/Phish-Blitz" target="_blank"
+                            class="mt-auto px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition">
+                            Visit Web App
+                        </a>
+                    </div>
+
+                    <!-- Phishing & Legitimate Dataset -->
+                    <div
+                        class="bg-gradient-to-tr from-red-200 via-pink-100 to-rose-100 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-xl transition-all">
+                        <div class="h-20 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-database text-red-600 text-5xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 text-center mb-2">
+                            Phishing & Legitimate Dataset
+                        </h4>
+                        <p class="text-gray-700 text-center mb-3">
+                            ~9K phishing and ~9K legitimate webpage screenshots.
+                        </p>
+                        <a href="https://iitdh-my.sharepoint.com/:f:/g/personal/222011001_iitdh_ac_in/EjiS5itXWzZFtcqNGf-qFYEBNWrlM9ERz4JwFcY0KJe0DA?e=0CZatU"
+                            target="_blank"
+                            class="mt-auto px-4 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition">
+                            View Dataset
+                        </a>
+                    </div>
+
+                    <!-- Annotated Logo Dataset -->
+                    <div
+                        class="bg-gradient-to-tr from-purple-300 via-violet-100 to-indigo-100 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-xl transition-all">
+                        <div class="h-20 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-layer-group text-purple-600 text-5xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 text-center mb-2">
+                            Annotated Logo Dataset
+                        </h4>
+                        <p class="text-gray-700 text-center mb-3">
+                            ~9K legitimate webpage screenshots with manually labeled logos.
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1rvzo5EGu78RnhXzcRL8OH_28Yo_Nxj6Z?usp=sharing"
+                            target="_blank"
+                            class="mt-auto px-4 py-2 bg-purple-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
+                            View Dataset
+                        </a>
+                    </div>
+
+                    <!-- PhishOracle -->
+                    <div
+                        class="bg-gradient-to-tr from-blue-200 via-cyan-100 to-teal-100 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-xl transition-all">
+                        <div class="h-20 flex items-center justify-center mb-4">
+                            <img src="logos/PhishOracle_Logo.jpg" alt="PhishOracle Logo"
+                                class="max-h-full max-w-full object-contain">
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 text-center mb-2">
+                            PhishOracle
+                        </h4>
+                        <p class="text-gray-700 text-center mb-3">
+                            Generate adversarial phishing webpages.
+                        </p>
+                        <a href="https://github.com/LetsBeSecure/PhishOracle-Project" target="_blank"
+                            class="mt-auto px-4 py-2 bg-cyan-800 text-white rounded-lg shadow hover:bg-green-700 transition">
+                            Visit Web App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications"
+            class="py-8 bg-gradient-to-tr from-amber-100 via-orange-100 to-rose-100 scroll-mt-24 mt-12 rounded-2xl px-4 shadow-lg">
+            <div class="max-w-7xl mx-auto">
+                <!-- Title -->
+                <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-6 relative inline-block">
+                    <span class="px-4 py-2flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-book text-indigo-600"></i>
+                        Publications
+                    </span>
+                </h3>
+
+                <!-- Year Filter Buttons -->
+                <div class="flex justify-center gap-3 mb-6">
+                    <button class="year-filter-btn px-4 py-2 bg-blue-700 text-white rounded"
+                        data-year="all">All</button>
+                    <button class="year-filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded"
+                        data-year="2025">2025</button>
+                    <button class="year-filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded"
+                        data-year="2024">2024</button>
+                    <button class="year-filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded"
+                        data-year="2023">2023</button>
+                </div>
+
+                <!-- Journals Card -->
+                <div id="journals"
+                    class="bg-gradient-to-tr from-emerald-800 via-teal-800 to-cyan-800 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold text-white">Journals</h4>
+                        <span class="bg-white text-[#39106E] text-sm font-semibold px-3 py-1 rounded-full">Total:
+                            <span id="journal-count">0</span>
+                        </span>
+                    </div>
+                    <ul class="space-y-3 text-white text-sm leading-snug list-decimal list-inside pub-list">
+                        <!-- Example Items -->
+                        <li class="publication-card" data-year="2025">
+                            A. Kulkarni, V. Balachandran, D. M. Divakaran and T. Das,
+                            <a href="https://dl.acm.org/doi/10.1145/3737295" target="_blank" class="font-medium">
+                                "From ML to LLM: Evaluating the Robustness of Phishing Webpage Detection Models against
+                                Adversarial Attacks,"
+                            </a>
+                            <span class="italic"><a href="https://dl.acm.org/journal/dtrap">ACM Digital Threats:
+                                    Research
+                                    and Practice</a></span>, Vol. 6, Issue 2, pp.
+                            1-25,
+                            June 2025.
+                        </li>
+                        <li class="publication-card" data-year="2025">
+                            A. Kulkarni, V. Balachandran and T. Das,
+                            <a href="https://ieeexplore.ieee.org/document/10633701" target="_blank" class="font-medium">
+                                "Phishing Webpage Detection: Unveiling the Threat Landscape and Investigating Detection
+                                Techniques,"
+                            </a>
+                            <span class="italic"><a href="https://www.comsoc.org/publications/journals/ieee-comst">IEEE
+                                    Communications Surveys & Tutorials</a></span>, Vol. 27, Issue 2, pp.
+                            974-1007,
+                            April 2025.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Conferences Card -->
+                <div id="conferences"
+                    class="bg-gradient-to-tr from-gray-800 via-slate-800 to-black rounded-2xl shadow-md p-6 hover:shadow-xl transition-all mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold text-white">Conferences / Workshops</h4>
+                        <span class="bg-white text-[#39106E] text-sm font-semibold px-3 py-1 rounded-full">Total:
+                            <span id="conference-count">0</span>
+                        </span>
+                    </div>
+                    <ul class="space-y-3 text-white text-sm leading-snug list-decimal list-inside pub-list">
+                        <!-- Example Items -->
+                        <li class="publication-card" data-year="2025">
+                            A. Kulkarni, T. Das, and V. Balachandran,
+                            <a href="https://doi.org/10.1109/COMSNETS63942.2025.10885687" target="_blank"
+                                class="font-medium">
+                                "ODoQ: Oblivious DNS-over-QUIC,"
+                            </a>
+                            <span class="italic"><a href="https://www.comsnets.org/">Internet Intelligence and
+                                    Governance
+                                    Workshop (IIGW), IEEE/ACM International Conference on COMmunication Systems &
+                                    NETworkS
+                                    (COMSNETS)</a></span>,
+                            Bengaluru, India, January 2025.
+                        </li>
+                        <li class="publication-card" data-year="2025">
+                            H. Duddu, A. Kulkarni, V. Balachandran and T. Das,
+                            <a href="https://ieeexplore.ieee.org/document/10885743" target="_blank" class="font-medium">
+                                "Phish-Blitz: Advancing Phishing Detection with Comprehensive Webpage Resource
+                                Collection
+                                and Visual Integrity Preservation,"
+                            </a>
+                            <span class="italic"><a href="https://www.comsnets.org/">IEEE/ACM International Conference
+                                    on
+                                    COMmunication Systems & NETworkS (COMSNETS)</a></span>, Bengaluru, India, January
+                            2025.
+                            [Short Paper]
+                        </li>
+                        <li class="publication-card" data-year="2024">
+                            R. Aduma, A. Kulkarni, T. Das and V. Balachandran,
+                            <a href="https://doi.org/10.1109/ICEI64305.2024.10912416" target="_blank"
+                                class="font-medium">
+                                "Overcoming DNSSEC Islands of Security: A TLS and IP-Based Certificate Solution,"
+                            </a>
+                            <span class="italic"><a href="https://enzored.risingbanyan.com/Ieee-conference/">IEEE
+                                    Conference
+                                    on Engineering Informatics</a></span>, Dharwad, India, November 2024.
+                        </li>
+                        <li class="publication-card" data-year="2024">
+                            A. Kulkarni, V. Balachandran, D. M. Divakaran and T. Das,
+                            <a href="https://doi.org/10.1109/COMSNETS59351.2024.10427170" target="_blank"
+                                class="font-medium">
+                                "Mitigating Bias in Machine Learning Models for Phishing Webpage Detection,"
+                            </a>
+                            <span class="italic"><a href="https://www.comsnets.org/">16th IEEE/ACM International
+                                    Conference
+                                    on COMmunication Systems & NETworkS (COMSNETS) [Graduate Forum]</a></span>,
+                            Bengaluru,
+                            India, January 2024.
+                        </li>
+                        <li class="publication-card" data-year="2023">
+                            A. Kulkarni, S. Patel, S. Tirmare, V. Balachandran, and T. Das,
+                            <a href="https://doi.org/10.1109/SOLI60636.2023.10425260" target="_blank"
+                                class="font-medium">
+                                "Bridging the Gap in Phishing Detection: A Comprehensive Phishing Dataset Collector,"
+                            </a>
+                            <span class="italic"><a
+                                    href="https://ieeexplore.ieee.org/xpl/conhome/10424968/proceeding">17th IEEE
+                                    International Conference on
+                                    Service Operations and Logistics, and Informatics (SOLI)</a></span>, Singapore,
+                            December
+                            2023.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Script to auto-count -->
+                <script>
+                    document.getElementById("journal-count").textContent = document.querySelectorAll("#journals ul li").length;
+                    document.getElementById("conference-count").textContent = document.querySelectorAll("#conferences ul li").length;
+                </script>
+
+                <!-- JS for filtering -->
+                <script>
+                    (() => {
+                        const filterBtns = document.querySelectorAll('.year-filter-btn');
+                        const sections = [{ id: 'journals' }, { id: 'conferences' }];
+
+                        function applyFilter(year) {
+                            sections.forEach(({ id }) => {
+                                const section = document.getElementById(id);
+                                if (!section) return;
+
+                                const items = Array.from(section.querySelectorAll('.publication-card'));
+                                let visibleCount = 0;
+
+                                items.forEach(item => {
+                                    const match = (year === 'all') || (item.dataset.year === year);
+                                    item.style.display = match ? 'list-item' : 'none';
+                                    if (match) visibleCount++;
+                                });
+
+                                const badge = section.querySelector('span span');
+                                if (badge) { badge.textContent = visibleCount; }
+
+                                section.style.display = (year === 'all' || visibleCount > 0) ? 'block' : 'none';
+                            });
+                        }
+
+                        filterBtns.forEach(btn => {
+                            btn.addEventListener('click', () => {
+                                const year = btn.dataset.year;
+                                filterBtns.forEach(b => {
+                                    b.classList.remove('bg-blue-700', 'text-white');
+                                    b.classList.add('bg-gray-200', 'text-gray-700');
+                                });
+                                btn.classList.add('bg-blue-700', 'text-white');
+                                btn.classList.remove('bg-gray-200', 'text-gray-700');
+                                applyFilter(year);
+                            });
+                        });
+
+                        applyFilter('all');
+                    })();
+                </script>
+            </div>
+        </section>
+
+        <!-- Recognitions -->
+        <section id="recognitions"
+            class="py-8 bg-gradient-to-tr from-indigo-100 via-violet-100 to-purple-100 scroll-mt-24 mt-12 rounded-2xl px-4 shadow-lg">
+            <div class="max-w-7xl mx-auto">
+                <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-6 relative inline-block">
+                    <span class="px-4 py-2 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-award text-yellow-500"></i>
+                        Recognitions
+                    </span>
+                </h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="relative group rounded-xl overflow-hidden shadow-md border w-full max-w-sm">
+                        <img src="./recognitions/best paper-honorable_mention_COMSNETS 2024.pdf.webp"
+                            alt="Award Certificate" class="w-full h-72 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white text-center text-sm font-medium px-4">
+                                Best Graduate Forum Honorable Mention Award<br>COMSNETS 2024
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative group rounded-xl overflow-hidden shadow-md border w-full max-w-sm">
+                        <img src="./recognitions/Directors_Medal_MTech.JPG" alt="Director's Gold Medal"
+                            class="w-full h-72 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white text-center text-sm font-medium px-4">
+                                Director's Gold Medal - M.Tech (NIT Goa)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TA Duties -->
+        <section id="ta" class="mt-16 scroll-mt-24">
+            <div class="bg-white rounded-2xl shadow-lg p-8 bg-gradient-to-tr from-rose-100 via-pink-100 to-fuchsia-100">
+                <h3 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-chalkboard-user text-indigo-600"></i> TA Duties
+                </h3>
+                <p class="mt-2 text-gray-600 text-sm">Click on a year to expand and see detailed TA responsibilities.
+                </p>
+
+                <div class="mt-6 space-y-4" x-data="{open: null}">
+
+                    <!-- 2025 -->
+                    <div class="border rounded-xl shadow-sm overflow-hidden">
+                        <button
+                            class="w-full flex justify-between items-center p-4 text-left font-semibold text-rose-700 hover:bg-rose-50 transition"
+                            @click="open === 2025 ? open = null : open = 2025">
+                            2025
+                            <i :class="open === 2025 ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa-solid"></i>
+                        </button>
+                        <div x-show="open === 2025" x-transition class="p-4 border-t text-sm text-gray-700 space-y-2">
+                            <p><strong>CS621T: Cryptography and Network Security</strong> &mdash; IIT Dharwad (Prof.
+                                Tamal Das), Aug-Dec 2025</p>
+                            <p><strong>CS315 + CS348: Computer Networks</strong> &mdash; IIT Dharwad (Prof. Tamal Das),
+                                Jan-May 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- 2024 -->
+                    <div class="border rounded-xl shadow-sm overflow-hidden">
+                        <button
+                            class="w-full flex justify-between items-center p-4 text-left font-semibold text-rose-700 hover:bg-rose-50 transition"
+                            @click="open === 2024 ? open = null : open = 2024">
+                            2024
+                            <i :class="open === 2024 ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa-solid"></i>
+                        </button>
+                        <div x-show="open === 2024" x-transition class="p-4 border-t text-sm text-gray-700 space-y-2">
+                            <p><strong>CS101: Intro to Programming</strong> &mdash; IIT Dharwad (Profs. Siba Narayan
+                                Swain & Jivnesh),
+                                Aug-Dec 2024</p>
+                            <p><strong>CS315 + CS348: Computer Networks</strong> &mdash; IIT Dharwad (Prof. Tamal Das),
+                                Jan-Apr 2024</p>
+                            <p><strong>Python Programming</strong> &mdash; IIM Rohtak (Prof. Tamal Das), 2024</p>
+                            <p><strong>Web-based Development</strong> &mdash; IIM Rohtak (Prof. Tamal Das), 2024</p>
+                        </div>
+                    </div>
+
+                    <!-- 2023 -->
+                    <div class="border rounded-xl shadow-sm overflow-hidden">
+                        <button
+                            class="w-full flex justify-between items-center p-4 text-left font-semibold text-rose-700 hover:bg-rose-50 transition"
+                            @click="open === 2023 ? open = null : open = 2023">
+                            2023
+                            <i :class="open === 2023 ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa-solid"></i>
+                        </button>
+                        <div x-show="open === 2023" x-transition class="p-4 border-t text-sm text-gray-700 space-y-2">
+                            <p><strong>CS103: Intro to Programming</strong> &mdash; IIT Dharwad (Profs. Kedar
+                                Kandeparkar & Prabhuchandran),
+                                Aug-Dec 2023</p>
+                            <p><strong>CS211: DSA Theory & Lab</strong> &mdash; IIT Dharwad (Prof. Koteshwar Rao
+                                Kondepu), May-Jul
+                                2023</p>
+                            <p><strong>Hands on Engineering</strong> &mdash; IIT Dharwad (Prof. Gayatri), May 2023</p>
+                            <p><strong>CS315 + CS348: Computer Networks</strong> &mdash; IIT Dharwad (Prof. Tamal Das),
+                                Feb-Apr 2023</p>
+                        </div>
+                    </div>
+
+                    <!-- 2022 -->
+                    <div class="border rounded-xl shadow-sm overflow-hidden">
+                        <button
+                            class="w-full flex justify-between items-center p-4 text-left font-semibold text-rose-700 hover:bg-rose-50 transition"
+                            @click="open === 2022 ? open = null : open = 2022">
+                            2022
+                            <i :class="open === 2022 ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa-solid"></i>
+                        </button>
+                        <div x-show="open === 2022" x-transition class="p-4 border-t text-sm text-gray-700 space-y-2">
+                            <p><strong>CS101: Intro to C Programming</strong> &mdash; IIT Dharwad (Profs. Nikhil Hegde &
+                                Pawade), Dec
+                                2022 - Jan 2023</p>
+                            <p><strong>CS213: Software Systems Laboratory</strong> &mdash; IIT Dharwad (Prof. Tamal
+                                Das), Aug-Nov 2022</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery: carousel -->
+        <section id="gallery"
+            class="py-6 sm:py-8 bg-gradient-to-tr from-teal-100 via-emerald-100 to-green-100 scroll-mt-24 mt-6 rounded-2xl p-6 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-4 relative inline-block">
+                    <span class="px-4 py-2 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-image text-green-700"></i>
+                        Gallery
+                    </span>
+                </h3>
+
+                <div x-data="carousel({ imgs: [
+                        'gallery/2_Aditya_COMSNETS_2025.jpg',
+                        'gallery/1_Aditya_COMSNETS_2025.jpg',
+                        'gallery/3_Aditya_COMSNETS_2025.jpg',
+                    ] })" x-init="init()" @mouseenter="stopAuto()" @mouseleave="startAuto()"
+                    class="relative mt-4 max-w-5xl mx-auto">
+
+                    <!-- Viewport -->
+                    <div class="overflow-hidden rounded-2xl shadow" x-ref="viewport">
+                        <!-- Track -->
+                        <div class="flex items-center" :style="trackStyle" @transitionend="onTransitionEnd">
+                            <template x-for="(src, idx) in slides" :key="idx">
+                                <div class="flex-shrink-0 px-2" :style="`width:${viewportWidth * 0.8}px`">
+                                    <div
+                                        class="h-64 sm:h-96 bg-blue-950 flex items-center justify-center rounded-xl overflow-hidden">
+                                        <img :src="src"
+                                            class="max-h-full max-w-full object-contain transition-transform duration-500 ease-in-out opacity-90 hover:opacity-100 hover:scale-105"
+                                            alt="Lab photo"
+                                            @error="$el.parentElement.style.background='linear-gradient(135deg,#1e3a8a,#9333ea)';" />
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Prev button -->
+                    <button @click="prev()"
+                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white"
+                        aria-label="Prev">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Next button -->
+                    <button @click="next()"
+                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white"
+                        aria-label="Next">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Dots -->
+                    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+                        <template x-for="(src, idx) in imgs" :key="idx">
+                            <button @click="goTo(idx)" class="w-3 h-3 rounded-full border border-white/70"
+                                :class="idx === currentIndex ? 'bg-blue-600' : 'bg-white/70'"></button>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function carousel({ imgs }) {
+                return {
+                    imgs,
+                    slides: [],
+                    current: 1,
+                    viewportWidth: 0,
+                    transitioning: true,
+                    auto: null,
+
+                    get trackStyle() {
+                        const slideWidth = this.viewportWidth * 0.8;
+                        const centerOffset = (this.viewportWidth - slideWidth) / 2;
+                        const offset = this.current * slideWidth - centerOffset;
+                        const t = `transform: translateX(-${offset}px);`;
+                        const d = this.transitioning
+                            ? 'transition: transform 700ms ease-in-out;'
+                            : 'transition: none;';
+                        return t + d;
+                    },
+
+                    get currentIndex() {
+                        return (this.current - 1 + this.imgs.length) % this.imgs.length;
+                    },
+
+                    init() {
+                        if (!this.imgs || !this.imgs.length) this.imgs = [];
+                        this.slides = [this.imgs[this.imgs.length - 1], ...this.imgs, this.imgs[0]];
+                        this.$nextTick(() => {
+                            this.updateWidth();
+                            window.addEventListener('resize', () => this.updateWidth());
+                        });
+                        this.startAuto();
+
+                        // 👇 Reset when user switches back to tab
+                        document.addEventListener("visibilitychange", () => {
+                            if (!document.hidden) {
+                                this.transitioning = false;
+                                this.current = 1;
+                                this.$nextTick(() => { this.transitioning = true; });
+                            }
+                        });
+                    },
+
+                    updateWidth() {
+                        this.viewportWidth = this.$refs.viewport.clientWidth || 0;
+                    },
+
+                    prev() {
+                        this.transitioning = true;
+                        this.current--;
+                    },
+
+                    next() {
+                        this.transitioning = true;
+                        this.current++;
+                    },
+
+                    onTransitionEnd() {
+                        if (this.current === 0) {
+                            // Jump from fake first → real last
+                            this.transitioning = false;
+                            this.current = this.imgs.length;
+                            this.$nextTick(() => {
+                                this.transitioning = true;
+                            });
+                        }
+                        else if (this.current === this.imgs.length + 1) {
+                            // Jump from fake last → real first
+                            this.transitioning = false;
+                            this.current = 1;
+                            this.$nextTick(() => {
+                                this.transitioning = true;
+                            });
+                        }
+                    },
+
+                    goTo(index) {
+                        this.transitioning = true;
+                        this.current = index + 1;
+                    },
+
+                    startAuto() {
+                        this.stopAuto();
+                        this.auto = setInterval(() => { this.next() }, 4000);
+                    },
+
+                    stopAuto() {
+                        if (this.auto) clearInterval(this.auto);
+                    }
+                }
+            }
+        </script>
+    </main>
+
+    <footer id="contact"
+        class="bg-gradient-to-tr from-slate-900 via-indigo-900 to-purple-900 text-white border-t border-white/10 mt-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <p class="font-semibold text-white">Aditya Kulkarni</p>
+                <p class="text-sm text-slate-300">Ph.D. @ IIT Dharwad in Dept. of CSE</p>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Email -->
+                <a href="mailto:aditya.kulkarni@iitdh.ac.in" aria-label="Email Aditya" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400
+                hover:bg-gradient-to-tr hover:from-indigo-500 hover:to-indigo-700" title="Email">
+                    <i class="fa-solid fa-envelope text-white/80 transition-colors group-hover:text-white"></i>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/aditya-kulkarni-172643150" target="_blank" rel="noopener"
+                    aria-label="LinkedIn" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400
+                hover:bg-gradient-to-tr hover:from-blue-600 hover:to-cyan-500" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin text-white/80 transition-colors"></i>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/LetsBeSecure" target="_blank" rel="noopener" aria-label="GitHub" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500
+                hover:bg-gradient-to-tr hover:from-gray-800 hover:to-gray-600" title="GitHub">
+                    <i class="fa-brands fa-github text-white/80 transition-colors"></i>
+                </a>
+
+                <!-- Google Scholar -->
+                <a href="https://scholar.google.com/citations?user=cj3PTEkAAAAJ&hl" target="_blank" rel="noopener"
+                    aria-label="Google Scholar" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300
+                hover:bg-gradient-to-tr hover:from-emerald-500 hover:to-teal-400" title="Google Scholar">
+                    <i class="fa-solid fa-graduation-cap text-white/80 transition-colors"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu event listener (simple)
+        window.addEventListener('open-mobile', () => {
+            alert('Mobile menu — you can add a mobile drawer here.');
+        });
+
+        // Carousel implementation (copied from user-provided code, converted for Alpine)
+        function carousel({ imgs }) {
+            return {
+                imgs,
+                slides: [],
+                current: 1,
+                viewportWidth: 0,
+                transitioning: true,
+                auto: null,
+
+                get trackStyle() {
+                    const slideWidth = this.viewportWidth * 0.8;
+                    const centerOffset = (this.viewportWidth - slideWidth) / 2;
+                    const offset = this.current * slideWidth - centerOffset;
+                    const t = `transform: translateX(-${offset}px);`;
+                    const d = this.transitioning ? 'transition: transform 700ms ease-in-out;' : 'transition: none;';
+                    return t + d;
+                },
+
+                get currentIndex() {
+                    return (this.current - 1 + this.imgs.length) % this.imgs.length;
+                },
+
+                init() {
+                    if (!this.imgs || !this.imgs.length) this.imgs = [];
+                    this.slides = [this.imgs[this.imgs.length - 1], ...this.imgs, this.imgs[0]];
+                    this.$nextTick(() => {
+                        this.updateWidth();
+                        window.addEventListener('resize', () => this.updateWidth());
+                    });
+                    this.startAuto();
+
+                    document.addEventListener("visibilitychange", () => {
+                        if (!document.hidden) {
+                            this.transitioning = false;
+                            this.current = 1;
+                            this.$nextTick(() => { this.transitioning = true; });
+                        }
+                    });
+                },
+
+                updateWidth() { this.viewportWidth = this.$refs.viewport.clientWidth || 0; },
+                prev() { this.transitioning = true; this.current--; },
+                next() { this.transitioning = true; this.current++; },
+
+                onTransitionEnd() {
+                    if (this.current === 0) { this.transitioning = false; this.current = this.imgs.length; }
+                    if (this.current === this.imgs.length + 1) { this.transitioning = false; this.current = 1; }
+                    setTimeout(() => { this.transitioning = true; }, 20);
+                },
+
+                goTo(index) { this.transitioning = true; this.current = index + 1; },
+                startAuto() { this.stopAuto(); this.auto = setInterval(() => { this.next() }, 4000); },
+                stopAuto() { if (this.auto) clearInterval(this.auto); }
+            }
+        }
+    </script>
+</body>
+
+</html>
