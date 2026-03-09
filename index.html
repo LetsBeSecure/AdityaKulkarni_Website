@@ -679,6 +679,93 @@
         
             </div>
         </section>
+
+        <script>
+            function carousel({ imgs }) {
+                return {
+                    imgs,
+                    slides: [],
+                    current: 1,
+                    viewportWidth: 0,
+                    transitioning: true,
+                    auto: null,
+            
+                    get trackStyle() {
+                        const slideWidth = this.viewportWidth * 0.8;
+                        const centerOffset = (this.viewportWidth - slideWidth) / 2;
+                        const offset = this.current * slideWidth - centerOffset;
+                        const t = `transform: translateX(-${offset}px);`;
+                        const d = this.transitioning
+                            ? 'transition: transform 700ms ease-in-out;'
+                            : 'transition: none;';
+                        return t + d;
+                    },
+            
+                    get currentIndex() {
+                        return (this.current - 1 + this.imgs.length) % this.imgs.length;
+                    },
+            
+                    init() {
+                        if (!this.imgs || !this.imgs.length) this.imgs = [];
+                        this.slides = [this.imgs[this.imgs.length - 1], ...this.imgs, this.imgs[0]];
+                        this.$nextTick(() => {
+                            this.updateWidth();
+                            window.addEventListener('resize', () => this.updateWidth());
+                        });
+                        this.startAuto();
+            
+                        document.addEventListener("visibilitychange", () => {
+                            if (!document.hidden) {
+                                this.transitioning = false;
+                                this.current = 1;
+                                this.$nextTick(() => { this.transitioning = true; });
+                            }
+                        });
+                    },
+            
+                    updateWidth() {
+                        this.viewportWidth = this.$refs.viewport.clientWidth || 0;
+                    },
+            
+                    prev() {
+                        this.transitioning = true;
+                        this.current--;
+                    },
+            
+                    next() {
+                        this.transitioning = true;
+                        this.current++;
+                    },
+            
+                    onTransitionEnd() {
+                        if (this.current === 0) {
+                            this.transitioning = false;
+                            this.current = this.imgs.length;
+                            this.$nextTick(() => { this.transitioning = true; });
+                        }
+                        else if (this.current === this.imgs.length + 1) {
+                            this.transitioning = false;
+                            this.current = 1;
+                            this.$nextTick(() => { this.transitioning = true; });
+                        }
+                    },
+            
+                    goTo(index) {
+                        this.transitioning = true;
+                        this.current = index + 1;
+                    },
+            
+                    startAuto() {
+                        this.stopAuto();
+                        this.auto = setInterval(() => { this.next() }, 4000);
+                    },
+            
+                    stopAuto() {
+                        if (this.auto) clearInterval(this.auto);
+                    }
+                }
+            }
+            </script>
     </main>
 
     <footer id="contact"
@@ -786,3 +873,4 @@
 </body>
 
 </html>
+
