@@ -603,7 +603,15 @@
                     </span>
                 </h3>
         
-                <div x-data="carousel()" x-init="init()" @mouseenter="stopAuto()" @mouseleave="startAuto()"
+                <div x-data="carousel({ imgs: [
+                        'gallery/2_Aditya_COMSNETS_2025.jpg',
+                        'gallery/3_Aditya_COMSNETS_2025.jpg',
+                        'recognitions/Directors_Medal_MTech.JPG',
+                        'gallery/CSE_Conclave_2026.JPG'
+                    ] })"
+                    x-init="init()"
+                    @mouseenter="stopAuto()"
+                    @mouseleave="startAuto()"
                     class="relative mt-4 max-w-5xl mx-auto">
         
                     <!-- Viewport -->
@@ -612,22 +620,27 @@
                         <!-- Track -->
                         <div class="flex items-center" :style="trackStyle" @transitionend="onTransitionEnd">
         
-                            <template x-for="(item, idx) in slides" :key="idx">
+                            <template x-for="(src, idx) in slides" :key="idx">
         
                                 <div class="flex-shrink-0 px-2" :style="`width:${viewportWidth * 0.8}px`">
         
-                                    <div
-                                        class="relative h-64 sm:h-96 bg-blue-950 flex items-center justify-center rounded-xl overflow-hidden">
+                                    <div class="relative h-64 sm:h-96 bg-blue-950 flex items-center justify-center rounded-xl overflow-hidden">
         
-                                        <img :src="item.src"
+                                        <img :src="src"
                                             class="max-h-full max-w-full object-contain transition-transform duration-500 ease-in-out opacity-90 hover:opacity-100 hover:scale-105"
-                                            alt="Gallery image"
+                                            alt="Gallery photo"
                                             @error="$el.parentElement.style.background='linear-gradient(135deg,#1e3a8a,#9333ea)';" />
         
                                         <!-- Event Tag -->
-                                        <div
-                                            class="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full backdrop-blur shadow">
-                                            <span x-text="item.event"></span>
+                                        <div class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-3 py-1 rounded-lg backdrop-blur">
+                                            <span
+                                                x-text="[
+                                                    'COMSNETS 2025',
+                                                    'COMSNETS 2025',
+                                                    'Director\'s Gold Medal – NIT Goa',
+                                                    'CSE Conclave 2026'
+                                                ][(idx - 1 + imgs.length) % imgs.length]">
+                                            </span>
                                         </div>
         
                                     </div>
@@ -639,130 +652,33 @@
                         </div>
                     </div>
         
-                    <!-- Prev -->
+                    <!-- Prev button -->
                     <button @click="prev()"
-                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white">
+                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white"
+                        aria-label="Prev">
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
         
-                    <!-- Next -->
+                    <!-- Next button -->
                     <button @click="next()"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white">
+                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white"
+                        aria-label="Next">
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
         
                     <!-- Dots -->
                     <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-        
-                        <template x-for="(item, idx) in imgs" :key="idx">
-        
+                        <template x-for="(src, idx) in imgs" :key="idx">
                             <button @click="goTo(idx)"
                                 class="w-3 h-3 rounded-full border border-white/70"
-                                :class="idx === currentIndex ? 'bg-blue-600' : 'bg-white/70'">
-                            </button>
-        
+                                :class="idx === currentIndex ? 'bg-blue-600' : 'bg-white/70'"></button>
                         </template>
-        
                     </div>
         
                 </div>
+        
             </div>
         </section>
-        
-        <script>
-
-            function carousel(){
-            
-            return {
-            
-            imgs:[
-            {src:'gallery/2_Aditya_COMSNETS_2025.jpg',event:'COMSNETS 2025'},
-            {src:'gallery/3_Aditya_COMSNETS_2025.jpg',event:'COMSNETS 2025'},
-            {src:'recognitions/Directors_Medal_MTech.JPG',event:"Director's Gold Medal – NIT Goa"},
-            {src:'gallery/CSE_Conclave_2026.JPG',event:'CSE Conclave 2026'}
-            ],
-            
-            current:0,
-            viewportWidth:0,
-            auto:null,
-            
-            get trackStyle(){
-            
-            const slideWidth=this.viewportWidth*0.8
-            const centerOffset=(this.viewportWidth-slideWidth)/2
-            const offset=this.current*slideWidth-centerOffset
-            
-            return `transform: translateX(-${offset}px); transition: transform 700ms ease-in-out;`
-            
-            },
-            
-            get slides(){
-            return this.imgs
-            },
-            
-            get currentIndex(){
-            return this.current
-            },
-            
-            init(){
-            
-            this.$nextTick(()=>{
-            this.updateWidth()
-            window.addEventListener('resize',()=>this.updateWidth())
-            })
-            
-            this.startAuto()
-            
-            },
-            
-            updateWidth(){
-            this.viewportWidth=this.$refs.viewport.clientWidth||0
-            },
-            
-            prev(){
-            
-            this.current--
-            
-            if(this.current<0){
-            this.current=this.imgs.length-1
-            }
-            
-            },
-            
-            next(){
-            
-            this.current++
-            
-            if(this.current>=this.imgs.length){
-            this.current=0
-            }
-            
-            },
-            
-            goTo(index){
-            
-            this.current=index
-            
-            },
-            
-            startAuto(){
-            
-            this.stopAuto()
-            this.auto=setInterval(()=>{this.next()},4000)
-            
-            },
-            
-            stopAuto(){
-            
-            if(this.auto) clearInterval(this.auto)
-            
-            }
-            
-            }
-            
-            }
-            
-            </script>
     </main>
 
     <footer id="contact"
@@ -869,14 +785,4 @@
     </script>
 </body>
 
-
 </html>
-
-
-
-
-
-
-
-
-
