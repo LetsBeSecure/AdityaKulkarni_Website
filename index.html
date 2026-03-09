@@ -602,10 +602,10 @@
                 </h3>
 
                 <div x-data="carousel({ imgs: [
-                        'gallery/2_Aditya_COMSNETS_2025.jpg',
-                        'gallery/3_Aditya_COMSNETS_2025.jpg',
-                        'recognitions/Directors_Medal_MTech.JPG',
-                        'gallery/CSE_Conclave_2026.JPG'
+                     {src:'gallery/2_Aditya_COMSNETS_2025.jpg', event:'COMSNETS 2025'},
+                     {src:'gallery/3_Aditya_COMSNETS_2025.jpg', event:'COMSNETS 2025'},
+                     {src:'recognitions/Directors_Medal_MTech.JPG', event:'Director’s Gold Medal – NIT Goa'},
+                     {src:'gallery/CSE_Conclave_2026.JPG', event:'CSE Conclave 2026'}
                     ] })" x-init="init()" @mouseenter="stopAuto()" @mouseleave="startAuto()"
                     class="relative mt-4 max-w-5xl mx-auto">
 
@@ -613,14 +613,17 @@
                     <div class="overflow-hidden rounded-2xl shadow" x-ref="viewport">
                         <!-- Track -->
                         <div class="flex items-center" :style="trackStyle" @transitionend="onTransitionEnd">
-                            <template x-for="(src, idx) in slides" :key="idx">
+                            <template x-for="(item, idx) in slides" :key="idx">
                                 <div class="flex-shrink-0 px-2" :style="`width:${viewportWidth * 0.8}px`">
-                                    <div
-                                        class="h-64 sm:h-96 bg-blue-950 flex items-center justify-center rounded-xl overflow-hidden">
-                                        <img :src="src"
+                                    <div class="relative h-64 sm:h-96 bg-blue-950 flex items-center justify-center rounded-xl overflow-hidden">
+                                        <img :src="item.src"
                                             class="max-h-full max-w-full object-contain transition-transform duration-500 ease-in-out opacity-90 hover:opacity-100 hover:scale-105"
                                             alt="Lab photo"
                                             @error="$el.parentElement.style.background='linear-gradient(135deg,#1e3a8a,#9333ea)';" />
+                                        <!-- Event Tag -->
+                                        <div class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-3 py-1 rounded-lg backdrop-blur">
+                                            <span x-text="item.event"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </template>
@@ -643,7 +646,7 @@
 
                     <!-- Dots -->
                     <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-                        <template x-for="(src, idx) in imgs" :key="idx">
+                        <template x-for="(item, idx) in imgs" :key="idx">
                             <button @click="goTo(idx)" class="w-3 h-3 rounded-full border border-white/70"
                                 :class="idx === currentIndex ? 'bg-blue-600' : 'bg-white/70'"></button>
                         </template>
@@ -853,6 +856,7 @@
 
 
 </html>
+
 
 
 
