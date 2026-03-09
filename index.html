@@ -670,108 +670,78 @@
         </section>
         
         <script>
-            
-            function carousel() {
+
+            function carousel(){
             
             return {
             
-            imgs: [
-            
-            {src:'gallery/2_Aditya_COMSNETS_2025.jpg', event:'COMSNETS 2025'},
-            {src:'gallery/3_Aditya_COMSNETS_2025.jpg', event:'COMSNETS 2025'},
-            {src:'recognitions/Directors_Medal_MTech.JPG', event:"Director's Gold Medal – NIT Goa"},
-            {src:'gallery/CSE_Conclave_2026.JPG', event:'CSE Conclave 2026'}
-            
+            imgs:[
+            {src:'gallery/2_Aditya_COMSNETS_2025.jpg',event:'COMSNETS 2025'},
+            {src:'gallery/3_Aditya_COMSNETS_2025.jpg',event:'COMSNETS 2025'},
+            {src:'recognitions/Directors_Medal_MTech.JPG',event:"Director's Gold Medal – NIT Goa"},
+            {src:'gallery/CSE_Conclave_2026.JPG',event:'CSE Conclave 2026'}
             ],
             
-            slides: [],
-            current: 1,
-            viewportWidth: 0,
-            transitioning: true,
-            auto: null,
+            current:0,
+            viewportWidth:0,
+            auto:null,
             
             get trackStyle(){
             
-            const slideWidth = this.viewportWidth * 0.8
-            const centerOffset = (this.viewportWidth - slideWidth) / 2
-            const offset = this.current * slideWidth - centerOffset
+            const slideWidth=this.viewportWidth*0.8
+            const centerOffset=(this.viewportWidth-slideWidth)/2
+            const offset=this.current*slideWidth-centerOffset
             
-            const transform = `transform: translateX(-${offset}px);`
-            const transition = this.transitioning ? 'transition: transform 700ms ease-in-out;' : 'transition:none;'
-            
-            return transform + transition
+            return `transform: translateX(-${offset}px); transition: transform 700ms ease-in-out;`
             
             },
             
+            get slides(){
+            return this.imgs
+            },
+            
             get currentIndex(){
-            return (this.current - 1 + this.imgs.length) % this.imgs.length
+            return this.current
             },
             
             init(){
             
-            this.slides = [
-            this.imgs[this.imgs.length - 1],
-            ...this.imgs,
-            this.imgs[0]
-            ]
-            
             this.$nextTick(()=>{
             this.updateWidth()
-            window.addEventListener('resize', ()=>this.updateWidth())
+            window.addEventListener('resize',()=>this.updateWidth())
             })
             
             this.startAuto()
             
-            document.addEventListener("visibilitychange", ()=>{
-            if(!document.hidden){
-            this.transitioning=false
-            this.current=1
-            this.$nextTick(()=>{this.transitioning=true})
-            }
-            })
-            
             },
             
             updateWidth(){
-            this.viewportWidth = this.$refs.viewport.clientWidth || 0
+            this.viewportWidth=this.$refs.viewport.clientWidth||0
             },
             
             prev(){
-            this.transitioning=true
+            
             this.current--
+            
+            if(this.current<0){
+            this.current=this.imgs.length-1
+            }
+            
             },
             
             next(){
-            this.transitioning=true
+            
             this.current++
-            },
             
-            onTransitionEnd(){
-            
-            if(this.current === 0){
-            
-            this.transitioning=false
-            this.current=this.imgs.length
-            
-            this.$nextTick(()=>{this.transitioning=true})
-            
-            }
-            
-            if(this.current === this.imgs.length+1){
-            
-            this.transitioning=false
-            this.current=1
-            
-            this.$nextTick(()=>{this.transitioning=true})
-            
+            if(this.current>=this.imgs.length){
+            this.current=0
             }
             
             },
             
             goTo(index){
             
-            this.transitioning=true
-            this.current=index+1
+            this.current=index
             
             },
             
@@ -901,6 +871,7 @@
 
 
 </html>
+
 
 
 
