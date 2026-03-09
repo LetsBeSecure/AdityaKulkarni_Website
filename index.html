@@ -593,161 +593,206 @@
         <!-- Gallery: carousel -->
         <section id="gallery"
             class="py-6 sm:py-8 bg-gradient-to-tr from-teal-100 via-emerald-100 to-green-100 scroll-mt-24 mt-6 rounded-2xl p-6 shadow-lg">
+        
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
                 <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-4 relative inline-block">
                     <span class="px-4 py-2 flex items-center justify-center gap-2">
                         <i class="fa-solid fa-image text-green-700"></i>
                         Gallery
                     </span>
                 </h3>
-
-                <div x-data="carousel({ imgs: [
-                     {src:'gallery/2_Aditya_COMSNETS_2025.jpg', event:'COMSNETS 2025'},
-                     {src:'gallery/3_Aditya_COMSNETS_2025.jpg', event:'COMSNETS 2025'},
-                     {src:'recognitions/Directors_Medal_MTech.JPG', event:'Director’s Gold Medal – NIT Goa'},
-                     {src:'gallery/CSE_Conclave_2026.JPG', event:'CSE Conclave 2026'}
-                    ] })" x-init="init()" @mouseenter="stopAuto()" @mouseleave="startAuto()"
+        
+                <div x-data="carousel()" x-init="init()" @mouseenter="stopAuto()" @mouseleave="startAuto()"
                     class="relative mt-4 max-w-5xl mx-auto">
-
+        
                     <!-- Viewport -->
                     <div class="overflow-hidden rounded-2xl shadow" x-ref="viewport">
+        
                         <!-- Track -->
                         <div class="flex items-center" :style="trackStyle" @transitionend="onTransitionEnd">
+        
                             <template x-for="(item, idx) in slides" :key="idx">
+        
                                 <div class="flex-shrink-0 px-2" :style="`width:${viewportWidth * 0.8}px`">
-                                    <div class="relative h-64 sm:h-96 bg-blue-950 flex items-center justify-center rounded-xl overflow-hidden">
+        
+                                    <div
+                                        class="relative h-64 sm:h-96 bg-blue-950 flex items-center justify-center rounded-xl overflow-hidden">
+        
                                         <img :src="item.src"
                                             class="max-h-full max-w-full object-contain transition-transform duration-500 ease-in-out opacity-90 hover:opacity-100 hover:scale-105"
-                                            alt="Lab photo"
+                                            alt="Gallery image"
                                             @error="$el.parentElement.style.background='linear-gradient(135deg,#1e3a8a,#9333ea)';" />
+        
                                         <!-- Event Tag -->
-                                        <div class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-3 py-1 rounded-lg backdrop-blur">
+                                        <div
+                                            class="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full backdrop-blur shadow">
                                             <span x-text="item.event"></span>
                                         </div>
+        
                                     </div>
+        
                                 </div>
+        
                             </template>
+        
                         </div>
                     </div>
-
-                    <!-- Prev button -->
+        
+                    <!-- Prev -->
                     <button @click="prev()"
-                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white"
-                        aria-label="Prev">
+                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white">
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
-
-                    <!-- Next button -->
+        
+                    <!-- Next -->
                     <button @click="next()"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white"
-                        aria-label="Next">
+                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white">
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
-
+        
                     <!-- Dots -->
                     <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+        
                         <template x-for="(item, idx) in imgs" :key="idx">
-                            <button @click="goTo(idx)" class="w-3 h-3 rounded-full border border-white/70"
-                                :class="idx === currentIndex ? 'bg-blue-600' : 'bg-white/70'"></button>
+        
+                            <button @click="goTo(idx)"
+                                class="w-3 h-3 rounded-full border border-white/70"
+                                :class="idx === currentIndex ? 'bg-blue-600' : 'bg-white/70'">
+                            </button>
+        
                         </template>
+        
                     </div>
+        
                 </div>
             </div>
         </section>
-
+        
         <script>
-            function carousel({ imgs }) {
-                return {
-                    imgs,
-                    slides: [],
-                    current: 1,
-                    viewportWidth: 0,
-                    transitioning: true,
-                    auto: null,
-
-                    get trackStyle() {
-                        const slideWidth = this.viewportWidth * 0.8;
-                        const centerOffset = (this.viewportWidth - slideWidth) / 2;
-                        const offset = this.current * slideWidth - centerOffset;
-                        const t = `transform: translateX(-${offset}px);`;
-                        const d = this.transitioning
-                            ? 'transition: transform 700ms ease-in-out;'
-                            : 'transition: none;';
-                        return t + d;
-                    },
-
-                    get currentIndex() {
-                        return (this.current - 1 + this.imgs.length) % this.imgs.length;
-                    },
-
-                    init() {
-                        if (!this.imgs || !this.imgs.length) this.imgs = [];
-                        this.slides = [this.imgs[this.imgs.length - 1], ...this.imgs, this.imgs[0]];
-                        this.$nextTick(() => {
-                            this.updateWidth();
-                            window.addEventListener('resize', () => this.updateWidth());
-                        });
-                        this.startAuto();
-
-                        // 👇 Reset when user switches back to tab
-                        document.addEventListener("visibilitychange", () => {
-                            if (!document.hidden) {
-                                this.transitioning = false;
-                                this.current = 1;
-                                this.$nextTick(() => { this.transitioning = true; });
-                            }
-                        });
-                    },
-
-                    updateWidth() {
-                        this.viewportWidth = this.$refs.viewport.clientWidth || 0;
-                    },
-
-                    prev() {
-                        this.transitioning = true;
-                        this.current--;
-                    },
-
-                    next() {
-                        this.transitioning = true;
-                        this.current++;
-                    },
-
-                    onTransitionEnd() {
-                        if (this.current === 0) {
-                            // Jump from fake first → real last
-                            this.transitioning = false;
-                            this.current = this.imgs.length;
-                            this.$nextTick(() => {
-                                this.transitioning = true;
-                            });
-                        }
-                        else if (this.current === this.imgs.length + 1) {
-                            // Jump from fake last → real first
-                            this.transitioning = false;
-                            this.current = 1;
-                            this.$nextTick(() => {
-                                this.transitioning = true;
-                            });
-                        }
-                    },
-
-                    goTo(index) {
-                        this.transitioning = true;
-                        this.current = index + 1;
-                    },
-
-                    startAuto() {
-                        this.stopAuto();
-                        this.auto = setInterval(() => { this.next() }, 4000);
-                    },
-
-                    stopAuto() {
-                        if (this.auto) clearInterval(this.auto);
-                    }
-                }
+            
+            function carousel() {
+            
+            return {
+            
+            imgs: [
+            
+            {src:'gallery/2_Aditya_COMSNETS_2025.jpg', event:'COMSNETS 2025'},
+            {src:'gallery/3_Aditya_COMSNETS_2025.jpg', event:'COMSNETS 2025'},
+            {src:'recognitions/Directors_Medal_MTech.JPG', event:"Director's Gold Medal – NIT Goa"},
+            {src:'gallery/CSE_Conclave_2026.JPG', event:'CSE Conclave 2026'}
+            
+            ],
+            
+            slides: [],
+            current: 1,
+            viewportWidth: 0,
+            transitioning: true,
+            auto: null,
+            
+            get trackStyle(){
+            
+            const slideWidth = this.viewportWidth * 0.8
+            const centerOffset = (this.viewportWidth - slideWidth) / 2
+            const offset = this.current * slideWidth - centerOffset
+            
+            const transform = `transform: translateX(-${offset}px);`
+            const transition = this.transitioning ? 'transition: transform 700ms ease-in-out;' : 'transition:none;'
+            
+            return transform + transition
+            
+            },
+            
+            get currentIndex(){
+            return (this.current - 1 + this.imgs.length) % this.imgs.length
+            },
+            
+            init(){
+            
+            this.slides = [
+            this.imgs[this.imgs.length - 1],
+            ...this.imgs,
+            this.imgs[0]
+            ]
+            
+            this.$nextTick(()=>{
+            this.updateWidth()
+            window.addEventListener('resize', ()=>this.updateWidth())
+            })
+            
+            this.startAuto()
+            
+            document.addEventListener("visibilitychange", ()=>{
+            if(!document.hidden){
+            this.transitioning=false
+            this.current=1
+            this.$nextTick(()=>{this.transitioning=true})
             }
-        </script>
+            })
+            
+            },
+            
+            updateWidth(){
+            this.viewportWidth = this.$refs.viewport.clientWidth || 0
+            },
+            
+            prev(){
+            this.transitioning=true
+            this.current--
+            },
+            
+            next(){
+            this.transitioning=true
+            this.current++
+            },
+            
+            onTransitionEnd(){
+            
+            if(this.current === 0){
+            
+            this.transitioning=false
+            this.current=this.imgs.length
+            
+            this.$nextTick(()=>{this.transitioning=true})
+            
+            }
+            
+            if(this.current === this.imgs.length+1){
+            
+            this.transitioning=false
+            this.current=1
+            
+            this.$nextTick(()=>{this.transitioning=true})
+            
+            }
+            
+            },
+            
+            goTo(index){
+            
+            this.transitioning=true
+            this.current=index+1
+            
+            },
+            
+            startAuto(){
+            
+            this.stopAuto()
+            this.auto=setInterval(()=>{this.next()},4000)
+            
+            },
+            
+            stopAuto(){
+            
+            if(this.auto) clearInterval(this.auto)
+            
+            }
+            
+            }
+            
+            }
+            
+            </script>
     </main>
 
     <footer id="contact"
@@ -856,6 +901,7 @@
 
 
 </html>
+
 
 
 
