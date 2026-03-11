@@ -39,156 +39,142 @@
 
 <body class="bg-gradient-to-b from-white to-gray-50 text-gray-800 leading-relaxed">
     <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <div
-                    class="rounded-full w-12 h-12 bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white font-semibold shadow-lg">
-                    AK</div>
-                <div>
-                    <h1 class="text-lg font-semibold">Aditya Kulkarni</h1>
-                    <p class="text-xs text-gray-500">Ph.D. @ IIT Dharwad</p>
-                </div>
-            </div>
-            <nav class="hidden md:flex items-center gap-6 text-sm">
-                <a href="#about" class="hover:text-indigo-600">About</a>
-                <a href="#publications" class="hover:text-indigo-600">Publications</a>
-                <a href="#tools" class="hover:text-indigo-600">Tools</a>
-                <a href="#recognitions" class="hover:text-indigo-600">Recognitions</a>
-                <a href="#ta" class="hover:text-indigo-600">TAs</a>
-                <a href="#gallery" class="hover:text-indigo-600">Gallery</a>
-                <a href="#contact"
-                    class="px-3 py-2 bg-indigo-600 text-white rounded-lg shadow hover:brightness-105">Contact</a>
-            </nav>
-            <div class="md:hidden">
-                <button x-data @click="$dispatch('open-mobile')" class="p-2 rounded-md bg-gray-100"><i
-                        class="fa-solid fa-bars"></i></button>
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-
-    <!-- Title -->
-    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 mb-8">
+        <section id="about" class="relative scroll-mt-24 mt-6 rounded-2xl overflow-hidden">
+        
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-indigo-200 via-white to-indigo-200"></div>
+        <div class="absolute inset-0 bg-white/70"></div>
+        
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Title -->
+        <h2 class="text-3xl font-extrabold text-center text-gray-900">
         WhoAmI: <span class="text-indigo-800">Aditya Kulkarni</span>
-    </h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-
+        </h2>
+        
         <!-- Photo -->
-        <div class="flex justify-center">
-            <div class="relative group">
-
-                <div class="absolute -inset-2 bg-gradient-to-r from-indigo-400 to-purple-500 blur-xl opacity-30 group-hover:opacity-50 transition"></div>
-
-                <div class="relative w-72 sm:w-80 lg:w-96 h-72 sm:h-80 lg:h-96 rounded-3xl overflow-hidden shadow-2xl border border-gray-100 transform transition duration-500 group-hover:scale-105">
-
-                    <img src="./photo/Aditya_Kulkarni.jpg"
-                        alt="Aditya Kulkarni"
-                        class="w-full h-full object-cover">
-
-                </div>
-            </div>
+        <div class="flex justify-center mt-6">
+        <div class="relative group">
+        
+        <div class="absolute -inset-2 bg-gradient-to-r from-indigo-400 to-purple-500 blur-xl opacity-30 group-hover:opacity-50 transition"></div>
+        
+        <div class="relative w-52 h-52 rounded-3xl overflow-hidden shadow-2xl border border-gray-100 transform transition duration-500 group-hover:scale-105">
+        
+        <img src="./photo/Aditya_Kulkarni.jpg"
+        alt="Aditya Kulkarni"
+        class="w-full h-full object-cover">
+        
         </div>
-
+        
+        </div>
+        </div>
+        
+        <!-- Current Role -->
+        <p class="text-center text-indigo-700 font-medium mt-4">
+        Currently working as <span class="font-semibold">Senior Research Fellow</span>  
+        at the Department of CSE, IIT Dharwad
+        </p>
+        
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+        
         <!-- Area of Research -->
         <div class="bg-white/80 backdrop-blur-md rounded-xl p-5 shadow-md">
-            <h4 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                <i class="fa-solid fa-microscope text-indigo-700"></i>
-                Area of Research
-            </h4>
-
-            <p class="text-gray-700 text-justify leading-relaxed">
-                My work spans the field of
-                <span class="font-semibold text-indigo-600">cybersecurity</span>,
-                with two core directions: strengthening
-                <span class="font-semibold text-indigo-600">web security</span>
-                through phishing webpage detection, and advancing
-                <span class="font-semibold text-indigo-600">network security</span>
-                via DNS security enhancements and privacy-preserving protocols.
-                Beyond these, I explore
-                <span class="font-semibold text-purple-600">AI-driven cybersecurity</span>
-                and <span class="font-semibold text-purple-600">cryptography</span>.
-            </p>
+        <h4 class="font-semibold text-indigo-900 mb-2 flex items-center gap-2">
+        <i class="fa-solid fa-microscope text-indigo-700"></i>
+        Area of Research
+        </h4>
+        
+        <p class="text-gray-700 text-justify leading-relaxed">
+        My work spans the field of
+        <span class="font-semibold text-indigo-600">cybersecurity</span>,
+        with two core directions: strengthening
+        <span class="font-semibold text-indigo-600">web security</span>
+        through phishing webpage detection, and advancing
+        <span class="font-semibold text-indigo-600">network security</span>
+        via DNS security enhancements and privacy-preserving protocols.
+        Beyond these, I explore
+        <span class="font-semibold text-purple-600">AI-driven cybersecurity</span>
+        and <span class="font-semibold text-purple-600">cryptography</span>.
+        </p>
         </div>
-
+        
         <!-- Education -->
         <div class="bg-white/80 backdrop-blur-md rounded-xl p-5 shadow-md">
-            <h4 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                <i class="fa-solid fa-graduation-cap text-indigo-700"></i>
-                Education
-            </h4>
-
-            <ul class="list-disc list-inside text-indigo-700 space-y-1">
-                <li><span class="font-semibold">SRF</span>, IIT Dharwad (Dec 2025 – Present)</li>
-                <li><span class="font-semibold">Ph.D.</span>, IIT Dharwad (Aug 2022 – Dec 2025)</li>
-                <li><span class="font-semibold">M.Tech</span>, NIT Goa (2020 – 2022)</li>
-                <li><span class="font-semibold">B.E.</span>, SJCE Mysore (2015 – 2019)</li>
-            </ul>
+        <h4 class="font-semibold text-indigo-900 mb-2 flex items-center gap-2">
+        <i class="fa-solid fa-graduation-cap text-indigo-700"></i>
+        Education
+        </h4>
+        
+        <ul class="list-disc list-inside text-indigo-700 space-y-1">
+        <li><span class="font-semibold">SRF</span>, IIT Dharwad (Dec 2025 – Present)</li>
+        <li><span class="font-semibold">Ph.D.</span>, IIT Dharwad (Aug 2022 – Dec 2025)</li>
+        <li><span class="font-semibold">M.Tech</span>, NIT Goa (2020 – 2022)</li>
+        <li><span class="font-semibold">B.E.</span>, SJCE Mysore (2015 – 2019)</li>
+        </ul>
         </div>
-
-        <!-- Awards -->
-        <div class="bg-white/80 backdrop-blur-md rounded-xl p-5 shadow-md">
-            <h4 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                <i class="fa-solid fa-trophy text-indigo-700"></i>
-                Awards & Recognition
-            </h4>
-
-            <ul class="list-disc list-inside text-indigo-700 space-y-1">
-                <li>IEEE/ACM COMSNETS Best Graduate Forum Honorable Mention Award 2024</li>
-                <li>Director's Gold Medal at NIT Goa</li>
-            </ul>
-        </div>
-
-        <!-- Empty Spacer (keeps grid balance) -->
-        <div></div>
-
+        
         <!-- Journey -->
         <div class="bg-white/80 backdrop-blur-md rounded-xl p-5 shadow-md">
-            <h4 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                <i class="fa-solid fa-route text-indigo-700"></i>
-                Journey
-            </h4>
-
-            <p class="text-gray-700 text-justify leading-relaxed">
-                My research journey has been centered on designing solutions that are practical,
-                robust, and resilient against emerging cyber threats.
-            </p>
+        <h4 class="font-semibold text-indigo-900 mb-2 flex items-center gap-2">
+        <i class="fa-solid fa-route text-indigo-700"></i>
+        Journey
+        </h4>
+        
+        <p class="text-gray-700 text-justify leading-relaxed">
+        My research journey has been centered on designing solutions that
+        are practical, robust, and resilient against emerging cyber threats.
+        Explore my work and projects to walk through the milestones that
+        shaped this path.
+        </p>
         </div>
-
-    </div>
-
-    <!-- Buttons -->
-    <div class="flex flex-wrap items-center gap-4 mt-8">
-
+        
+        <!-- Awards -->
+        <div class="bg-white/80 backdrop-blur-md rounded-xl p-5 shadow-md">
+        <h4 class="font-semibold text-indigo-900 mb-2 flex items-center gap-2">
+        <i class="fa-solid fa-trophy text-indigo-700"></i>
+        Awards & Recognition
+        </h4>
+        
+        <ul class="list-disc list-inside text-indigo-700 space-y-1">
+        <li>IEEE/ACM COMSNETS Best Graduate Forum Honorable Mention Award 2024</li>
+        <li>Director's Gold Medal at NIT Goa</li>
+        </ul>
+        </div>
+        
+        </div>
+        
+        <!-- Links -->
+        <div class="flex justify-center flex-wrap gap-4 mt-10">
+        
         <a href="mailto:aditya.kulkarni@iitdh.ac.in"
         class="inline-flex items-center gap-3 px-5 py-2 rounded-xl bg-gradient-to-r from-purple-800 to-indigo-600 text-white shadow-md hover:shadow-xl hover:scale-105 transition">
         <i class="fa-solid fa-envelope"></i> Email
         </a>
-
+        
         <a href="https://www.linkedin.com/in/aditya-kulkarni-172643150"
         target="_blank"
         class="inline-flex items-center gap-3 px-5 py-2 rounded-xl bg-gradient-to-r from-blue-800 to-cyan-600 text-white shadow-md hover:shadow-xl hover:scale-105 transition">
         <i class="fa-brands fa-linkedin"></i> LinkedIn
         </a>
-
+        
         <a href="https://github.com/LetsBeSecure"
         target="_blank"
         class="inline-flex items-center gap-3 px-5 py-2 rounded-xl bg-gradient-to-r from-gray-800 to-gray-600 text-white shadow-md hover:shadow-xl hover:scale-105 transition">
         <i class="fa-brands fa-github"></i> GitHub
         </a>
-
+        
         <a href="https://scholar.google.com/citations?user=cj3PTEkAAAAJ&hl"
         target="_blank"
         class="inline-flex items-center gap-3 px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-green-500 text-white shadow-md hover:shadow-xl hover:scale-105 transition">
         <i class="fa-solid fa-graduation-cap"></i> Scholar
         </a>
-
-    </div>
-
-</div>
-
+        
+        </div>
+        
+        </div>
+        </section>
+        
         <!-- Research Contributions -->
         <section id="tools"
             class="py-12 bg-gradient-to-tr from-blue-100 via-black-100 to-gray-300 scroll-mt-24 mt-12 rounded-2xl px-4 shadow-lg">
@@ -860,6 +846,7 @@
 </body>
 
 </html>
+
 
 
 
