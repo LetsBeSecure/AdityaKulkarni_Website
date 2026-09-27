@@ -3,212 +3,168 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Aditya Kulkarni — Portfolio</title>
-    <link rel="icon" type="image/png" href="./logos/AK_Favicon.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aditya Kulkarni | Cybersecurity Researcher</title>
+    <meta name="description"
+        content="Aditya Kulkarni is a postdoctoral researcher at IIT Hyderabad working on phishing webpage detection, DNS security and privacy-preserving protocols." />
+    <meta name="theme-color" content="#FBFAFE" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0F0B1E" media="(prefers-color-scheme: dark)" />
+
+    <!-- Link previews (WhatsApp, LinkedIn, Slack) -->
+    <meta property="og:title" content="Aditya Kulkarni | Cybersecurity Researcher" />
+    <meta property="og:description"
+        content="Phishing webpage detection, DNS security and privacy-preserving protocols." />
+    <meta property="og:image" content="photo/Aditya_Kulkarni.jpg" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/png" href="logos/AK_Favicon.png" />
+
+    <!-- Apply saved theme before paint so the page doesn't flash -->
+    <script>
+        try {
+            const t = localStorage.getItem("theme");
+            if (t) document.documentElement.dataset.theme = t;
+        } catch (e) { }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        /* Small premium touches */
-        .glass-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.5));
-            backdrop-filter: blur(6px);
-        }
-
-        .social-icon {
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-4px) scale(1.06);
-            box-shadow: 0 8px 24px rgba(57, 16, 110, 0.14);
-        }
-
-        .section-title {
-            letter-spacing: -0.02em;
-        }
-
-        /* Publication list scroll for long lists */
-        .pub-list {
-            max-height: 420px;
-            overflow: auto;
-        }
-
-        #scrollTopBtn {
-            animation: floatGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes floatGlow {
-            0% {
-                box-shadow: 0 0 0 rgba(99, 102, 241, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 0 18px rgba(139, 92, 246, 0.5);
-            }
-
-            100% {
-                box-shadow: 0 0 0 rgba(99, 102, 241, 0.4);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
 </head>
 
-<body class="bg-gradient-to-b from-white to-gray-50 text-gray-800 leading-relaxed">
-    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <!-- Left side (AK + name) -->
-            <div class="flex items-center gap-4">
-                <div
-                    class="rounded-full w-12 h-12 bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white font-semibold shadow-lg">
-                    AK
-                </div>
-                <div>
-                    <h1 class="text-lg font-semibold">Aditya Kulkarni</h1>
-                    <p class="text-xs text-gray-500">PDF @ IIT Hyderabad</p>
-                </div>
-            </div>
-            <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="#about" class="hover:text-indigo-600 transition">About</a>
-                <a href="#publications" class="hover:text-indigo-600 transition">Publications</a>
-                <a href="#contributions" class="hover:text-indigo-600 transition">Contributions</a>
-                <a href="#recognitions" class="hover:text-indigo-600 transition">Recognitions</a>
-                <a href="#ta" class="hover:text-indigo-600 transition">TAs</a>
-                <a href="#gallery" class="hover:text-indigo-600 transition">Gallery</a>
-                <a href="#contact" class="px-3 py-2 bg-indigo-600 text-white rounded-lg shadow hover:brightness-105">
-                    Contact
-                </a>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============ HEADER ============ -->
+    <header class="site-header">
+        <div class="wrap header-row">
+            <a href="#top" class="brand" aria-label="Aditya Kulkarni, back to top">
+                <span class="brand-mark">AK</span>
+                <span class="brand-text">
+                    <span class="brand-name">Aditya Kulkarni</span>
+                    <span class="brand-role">Postdoc, IIT Hyderabad</span>
+                </span>
+            </a>
+
+            <nav class="nav" id="site-nav" aria-label="Main">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#teaching">Teaching</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#sketchbook">Interests</a>
+                <a href="#contact" class="nav-cta">Contact</a>
             </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch color theme">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+                <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-controls="site-nav"
+                    aria-expanded="false" aria-label="Open menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <!-- About Section: Premium Layout -->
-        <section id="about" class="relative scroll-mt-24 mt-2 rounded-2xl overflow-hidden">
-            <!-- Background Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-indigo-300 via-white to-indigo-300"></div>
-            <div class="absolute inset-0 bg-white/70"></div> <!-- overlay for readability -->
-            <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <!-- Title -->
-                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900 text-center">
-                    WhoAmI: <span class="text-indigo-800">Aditya Kulkarni</span>
-                </h2>
+    <main id="main">
+        <!-- ============ HERO / ABOUT ============ -->
+        <section id="top" class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-text">
+                    <h1 class="hero-name">Aditya<br />Kulkarni</h1>
+                    <p class="hero-role">
+                        Postdoctoral Researcher<br />Center for Cryptography and Cybersecurity<br />
+                        IIT Hyderabad
+                    </p>
+                    <p class="hero-lede">
+                        Phishing webpage detection, DNS security and privacy-preserving protocols.
+                    </p>
 
-                <!-- Photo -->
-                <div class="flex justify-center mt-4">
-                    <div class="w-56 h-56 rounded-3xl overflow-hidden shadow-2xl border border-gray-100
-                                transform transition duration-500 hover:scale-105">
-                        <img src="./photo/Aditya_Kulkarni.jpg" alt="Aditya Kulkarni" class="w-full h-full object-cover">
+                    <div class="hero-links">
+                        <a class="btn btn-primary" href="mailto:aditya.kulkarni@prjt.cse.iith.ac.in">
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email me
+                        </a>
+                        <a class="btn" href="https://scholar.google.com/citations?user=cj3PTEkAAAAJ&hl" target="_blank"
+                            rel="noopener">
+                            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Scholar
+                        </a>
+                        <a class="btn" href="https://github.com/LetsBeSecure" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                        </a>
+                        <a class="btn" href="https://www.linkedin.com/in/aditya-kulkarni-172643150" target="_blank"
+                            rel="noopener">
+                            <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+                        </a>
                     </div>
                 </div>
 
-                <!-- Current Role -->
-                <p class="text-center text-indigo-700 font-medium mt-3">
-                    Postdoctoral Researcher • Center for Cryptography and Cybersecurity • IIT Hyderabad
-                </p>
+                <figure class="hero-photo">
+                    <img src="photo/Aditya_Kulkarni.jpg" alt="Portrait of Aditya Kulkarni" width="1792" height="2389"
+                        fetchpriority="high" />
+                </figure>
+            </div>
+        </section>
 
-                <!-- Action Buttons -->
-                <div class="flex flex-wrap justify-center items-center gap-4 mt-4">
-                    <a href="mailto:aditya.kulkarni@iitdh.ac.in" class="group inline-flex items-center gap-3 px-5 py-2 rounded-xl
-                            bg-gradient-to-r from-purple-800 to-indigo-600 text-white shadow-md
-                            hover:shadow-xl hover:scale-105 transition">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span class="hidden sm:inline text-sm font-medium">Email</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/aditya-kulkarni-172643150" target="_blank" class="group inline-flex items-center
-                        gap-3 px-5 py-2 rounded-xl
-                        bg-gradient-to-r from-blue-800 to-cyan-600 text-white shadow-md
-                        hover:shadow-xl hover:scale-105 transition">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span class="hidden sm:inline text-sm font-medium">LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/LetsBeSecure" target="_blank" class="group inline-flex items-center gap-3 px-5 py-2 rounded-xl
-                        bg-gradient-to-r from-gray-800 to-gray-600 text-white shadow-md
-                        hover:shadow-xl hover:scale-105 transition">
-                        <i class="fa-brands fa-github"></i>
-                        <span class="hidden sm:inline text-sm font-medium">GitHub</span>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=cj3PTEkAAAAJ&hl" target="_blank" class="group inline-flex items-center 
-                        gap-3 px-5 py-2 rounded-xl
-                        bg-gradient-to-r from-emerald-600 to-green-500 text-white shadow-md
-                        hover:shadow-xl hover:scale-105 transition">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <span class="hidden sm:inline text-sm font-medium">Scholar</span>
-                    </a>
-                </div>
-
-                <!-- Two Column Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-2">
-                    <!-- Area of Research -->
-                    <div>
-                        <h4 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-shield-halved text-indigo-600"></i>
-                            Area of Research
-                        </h4>
-                        <p class="text-gray-700 text-base leading-relaxed text-justify ml-8">
-                            My work spans the field of <span class="font-semibold text-indigo-600">cybersecurity</span>,
-                            with two core directions: strengthening <span class="font-semibold text-indigo-600">web
-                                security</span>
-                            through phishing webpage detection, and advancing
-                            <span class="font-semibold text-indigo-600">network security</span> via DNS security
-                            enhancements
-                            and privacy-preserving protocols. Beyond these, I explore
-                            <span class="font-semibold text-purple-600">AI-driven cybersecurity</span> and
-                            <span class="font-semibold text-purple-600">cryptography</span>.
+        <section id="about" class="section">
+            <div class="wrap">
+                <h2 class="section-title">About</h2>
+                <div class="about-grid">
+                    <div class="about-block">
+                        <h3>Area of research</h3>
+                        <p>
+                            My work spans the field of <strong>cybersecurity</strong>, with two core directions:
+                            strengthening <strong>web security</strong> through phishing webpage detection, and
+                            advancing <strong>network security</strong> via DNS security enhancements and
+                            privacy-preserving protocols. Beyond these, I explore <strong>AI-driven
+                                cybersecurity</strong> and <strong>cryptography</strong>.
                         </p>
                     </div>
 
-                    <!-- Journey -->
-                    <div>
-                        <h4 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-route text-indigo-600"></i>
-                            Journey
-                        </h4>
-                        <p class="text-gray-700 text-base leading-relaxed text-justify ml-8">
+                    <div class="about-block">
+                        <h3>Journey</h3>
+                        <p>
                             My research journey has been centered on designing solutions that are practical,
-                            robust, and resilient against emerging cyber threats. Explore my work and projects
-                            to walk through the milestones and contributions that shaped this path.
+                            robust, and resilient against emerging cyber threats. Explore my
+                            <a href="#publications">work</a> and <a href="#research">projects</a> to walk through
+                            the milestones and contributions that shaped this path.
                         </p>
                     </div>
 
-                    <!-- Education -->
-                    <div>
-                        <h4 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-graduation-cap text-indigo-600"></i>
-                            Education
-                        </h4>
-                        <ul class="list-disc list-inside text-indigo-600 space-y-1 ml-8">
+                    <div class="about-block">
+                        <h3>Education</h3>
+                        <ol class="timeline">
                             <li>
-                                <span class="font-semibold">Ph.D.</span> &ndash; IIT Dharwad
-                                <span class="text-sm text-gray-500">(Aug. 2022 &ndash; Dec. 2025)</span>
+                                <span class="tl-when">2022 to 2025</span>
+                                <span class="tl-what"><strong>Ph.D.</strong>, IIT Dharwad</span>
                             </li>
                             <li>
-                                <span class="font-semibold">M.Tech</span> &ndash; NIT Goa
-                                <span class="text-sm text-gray-500">(2020 &ndash; 2022)</span>
+                                <span class="tl-when">2020 to 2022</span>
+                                <span class="tl-what"><strong>M.Tech</strong>, NIT Goa</span>
                             </li>
                             <li>
-                                <span class="font-semibold">B.E.</span> &ndash; SJCE Mysore
-                                <span class="text-sm text-gray-500">(2015 &ndash; 2019)</span>
+                                <span class="tl-when">2015 to 2019</span>
+                                <span class="tl-what"><strong>B.E.</strong>, SJCE Mysore</span>
                             </li>
-                        </ul>
+                        </ol>
                     </div>
 
-                    <!-- Awards -->
-                    <div>
-                        <h4 class="font-bold text-indigo-900 mb-2 flex items-center gap-2">
-                            <i class="fa-solid fa-award text-indigo-600"></i>
-                            Awards & Recognition
-                        </h4>
-                        <ul class="list-disc list-outside ml-10 text-indigo-600 space-y-1">
+                    <div class="about-block">
+                        <h3>Awards</h3>
+                        <ul class="plain-list">
                             <li>
-                                <span class="font-semibold">
-                                    IEEE/ACM COMSNETS Best Graduate Forum Honorable Mention Award 2024
-                                </span>
+                                <strong>Best Graduate Forum, Honorable Mention</strong>
+                                <span>IEEE/ACM COMSNETS 2024</span>
                             </li>
                             <li>
-                                <span class="font-semibold">Director's Gold Medal</span> &ndash; NIT Goa
+                                <strong>Director's Gold Medal</strong>
+                                <span>M.Tech, NIT Goa</span>
                             </li>
                         </ul>
                     </div>
@@ -216,741 +172,620 @@
             </div>
         </section>
 
-        <!-- Research Contributions -->
-        <section id="contributions"
-            class="py-12 bg-gradient-to-tr from-blue-100 via-black-100 to-gray-300 scroll-mt-24 mt-12 rounded-2xl px-4 shadow-lg">
-            <div class="max-w-7xl mx-auto">
-                <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-8 relative inline-block">
-                    <span class="px-4 py-2 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-flask text-purple-500"></i>
-                        Research Contributions
-                    </span>
-                </h3>
+        <!-- ============ RESEARCH CONTRIBUTIONS ============ -->
+        <section id="research" class="section section-tint">
+            <div class="wrap">
+                <h2 class="section-title">Tools and datasets</h2>
+                <p class="section-intro">Open resources from my research that others can use and build on.</p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Phish-Blitz Web App -->
-                    <div
-                        class="bg-gradient-to-tr from-green-200 via-lime-100 to-emerald-100 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-xl transition-all">
-                        <div class="h-20 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-rocket text-green-600 text-5xl"></i>
+                <div class="tools-grid">
+                    <article class="tool">
+                        <div class="tool-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+                        <div class="tool-body">
+                            <h3>Phish-Blitz</h3>
+                            <p>Collects the full set of resources behind phishing and legitimate webpages, keeping
+                                their visual appearance intact.</p>
+                            <a class="tool-link" href="https://github.com/Duddu-Hriday/Phish-Blitz" target="_blank"
+                                rel="noopener">View on GitHub</a>
                         </div>
-                        <h4 class="text-lg font-semibold text-gray-900 text-center mb-2">
-                            Phish-Blitz Web App
-                        </h4>
-                        <p class="text-gray-700 text-center mb-3">
-                            Phishing and Legitimate webpage resource collector.
-                        </p>
-                        <a href="https://github.com/Duddu-Hriday/Phish-Blitz" target="_blank"
-                            class="mt-auto px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition">
-                            Visit Web App
-                        </a>
-                    </div>
+                    </article>
 
-                    <!-- Phishing & Legitimate Dataset -->
-                    <div
-                        class="bg-gradient-to-tr from-red-200 via-pink-100 to-rose-100 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-xl transition-all">
-                        <div class="h-20 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-database text-red-600 text-5xl"></i>
+                    <article class="tool">
+                        <div class="tool-icon tool-icon-img">
+                            <img src="logos/PhishOracle_Logo.jpg" alt="" width="1024" height="1024" loading="lazy" />
                         </div>
-                        <h4 class="text-lg font-semibold text-gray-900 text-center mb-2">
-                            Phishing & Legitimate Dataset
-                        </h4>
-                        <p class="text-gray-700 text-center mb-3">
-                            ~9K phishing and ~9K legitimate webpage screenshots.
-                        </p>
-                        <a href="https://iitdh-my.sharepoint.com/:f:/g/personal/222011001_iitdh_ac_in/EjiS5itXWzZFtcqNGf-qFYEBNWrlM9ERz4JwFcY0KJe0DA?e=0CZatU"
-                            target="_blank"
-                            class="mt-auto px-4 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition">
-                            View Dataset
-                        </a>
-                    </div>
+                        <div class="tool-body">
+                            <h3>PhishOracle</h3>
+                            <p>Generates adversarial phishing webpages to test how well detection models hold up.</p>
+                            <a class="tool-link" href="https://github.com/LetsBeSecure/PhishOracle-Project"
+                                target="_blank" rel="noopener">View on GitHub</a>
+                        </div>
+                    </article>
 
-                    <!-- Annotated Logo Dataset -->
-                    <div
-                        class="bg-gradient-to-tr from-purple-300 via-violet-100 to-indigo-100 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-xl transition-all">
-                        <div class="h-20 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-layer-group text-purple-600 text-5xl"></i>
+                    <article class="tool">
+                        <div class="tool-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+                        <div class="tool-body">
+                            <h3>Phishing and legitimate webpage dataset</h3>
+                            <p>About 9K phishing and 9K legitimate webpage screenshots.</p>
+                            <a class="tool-link"
+                                href="https://iitdh-my.sharepoint.com/:f:/g/personal/222011001_iitdh_ac_in/EjiS5itXWzZFtcqNGf-qFYEBNWrlM9ERz4JwFcY0KJe0DA?e=0CZatU"
+                                target="_blank" rel="noopener">Open dataset</a>
                         </div>
-                        <h4 class="text-lg font-semibold text-gray-900 text-center mb-2">
-                            Annotated Logo Dataset
-                        </h4>
-                        <p class="text-gray-700 text-center mb-3">
-                            ~9K legitimate webpage screenshots with manually labeled logos.
-                        </p>
-                        <a href="https://drive.google.com/drive/folders/1rvzo5EGu78RnhXzcRL8OH_28Yo_Nxj6Z?usp=sharing"
-                            target="_blank"
-                            class="mt-auto px-4 py-2 bg-purple-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
-                            View Dataset
-                        </a>
-                    </div>
+                    </article>
 
-                    <!-- PhishOracle -->
-                    <div
-                        class="bg-gradient-to-tr from-blue-200 via-cyan-100 to-teal-100 rounded-2xl p-6 flex flex-col items-center shadow-lg hover:shadow-xl transition-all">
-                        <div class="h-20 flex items-center justify-center mb-4">
-                            <img src="logos/PhishOracle_Logo.jpg" alt="PhishOracle Logo"
-                                class="max-h-full max-w-full object-contain">
+                    <article class="tool">
+                        <div class="tool-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+                        <div class="tool-body">
+                            <h3>Annotated logo dataset</h3>
+                            <p>About 9K legitimate webpage screenshots with manually labelled logos.</p>
+                            <a class="tool-link"
+                                href="https://drive.google.com/drive/folders/1rvzo5EGu78RnhXzcRL8OH_28Yo_Nxj6Z?usp=sharing"
+                                target="_blank" rel="noopener">Open dataset</a>
                         </div>
-                        <h4 class="text-lg font-semibold text-gray-900 text-center mb-2">
-                            PhishOracle
-                        </h4>
-                        <p class="text-gray-700 text-center mb-3">
-                            Generate adversarial phishing webpages.
-                        </p>
-                        <a href="https://github.com/LetsBeSecure/PhishOracle-Project" target="_blank"
-                            class="mt-auto px-4 py-2 bg-cyan-800 text-white rounded-lg shadow hover:bg-green-700 transition">
-                            Visit Web App
-                        </a>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Publications -->
-        <section id="publications"
-            class="py-8 bg-gradient-to-tr from-amber-100 via-orange-100 to-rose-100 scroll-mt-24 mt-12 rounded-2xl px-4 shadow-lg">
-            <div class="max-w-7xl mx-auto">
-                <!-- Title -->
-                <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-6 relative inline-block">
-                    <span class="px-4 py-2flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-book text-indigo-600"></i>
-                        Publications
-                    </span>
-                </h3>
+        <!-- ============ PUBLICATIONS ============ -->
+        <section id="publications" class="section">
+            <div class="wrap">
+                <h2 class="section-title">Publications</h2>
 
-                <!-- Year Filter Buttons -->
-                <div class="flex justify-center gap-3 mb-6">
-                    <button class="year-filter-btn px-4 py-2 bg-blue-700 text-white rounded"
-                        data-year="all">All</button>
-                    <button class="year-filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded"
-                        data-year="2025">2025</button>
-                    <button class="year-filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded"
-                        data-year="2024">2024</button>
-                    <button class="year-filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded"
-                        data-year="2023">2023</button>
+                <div class="chip-group year-filter" role="group" aria-label="Filter publications by year">
+                    <button class="chip is-active" data-year="all" aria-pressed="true">All</button>
+                    <button class="chip" data-year="2025" aria-pressed="false">2025</button>
+                    <button class="chip" data-year="2024" aria-pressed="false">2024</button>
+                    <button class="chip" data-year="2023" aria-pressed="false">2023</button>
                 </div>
 
-                <!-- Journals Card -->
-                <div id="journals"
-                    class="bg-gradient-to-tr from-emerald-800 via-teal-800 to-cyan-800 rounded-2xl shadow-md p-6 hover:shadow-xl transition-all mb-8">
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-bold text-white">Journals</h4>
-                        <span class="bg-white text-[#39106E] text-sm font-semibold px-3 py-1 rounded-full">Total:
-                            <span id="journal-count">0</span>
-                        </span>
+                <!--
+                    To add a paper: copy one <li class="pub"> block into Journals or Conferences
+                    (newest first). Set data-year. Wrap your own name in <b>. Counts update themselves.
+                    New year? Add a matching chip button above.
+                -->
+                <div class="pub-block" data-block="journal">
+                    <div class="pub-block-head">
+                        <h3>Journals</h3>
+                        <span class="pub-count"></span>
                     </div>
-                    <ul class="space-y-4 text-white text-sm leading-snug list-decimal list-outside pl-6 pub-list">
-                        <!-- Example Items -->
-                        <li class="publication-card" data-year="2025">
-                            A. Kulkarni, V. Balachandran, D. M. Divakaran and T. Das,
-                            <a href="https://dl.acm.org/doi/10.1145/3737295" target="_blank" class="font-medium">
-                                "From ML to LLM: Evaluating the Robustness of Phishing Webpage Detection Models against
-                                Adversarial Attacks,"
-                            </a>
-                            <span class="italic"><a href="https://dl.acm.org/journal/dtrap">ACM Digital Threats:
-                                    Research
-                                    and Practice</a></span>, Vol. 6, Issue 2, pp.
-                            1-25,
-                            June 2025.
+                    <ol class="pub-list">
+                        <li class="pub" data-year="2025" data-type="journal">
+                            <img class="pub-logo" src="Publications/ACM_DTRAP.jpg" alt="ACM DTRAP" width="345"
+                                height="446" loading="lazy" />
+                            <div class="pub-body">
+                                <a class="pub-title" href="https://dl.acm.org/doi/10.1145/3737295" target="_blank"
+                                    rel="noopener">From ML to LLM: Evaluating the Robustness of Phishing Webpage
+                                    Detection Models against Adversarial Attacks</a>
+                                <p class="pub-authors"><b>A. Kulkarni</b>, V. Balachandran, D. M. Divakaran and
+                                    T. Das</p>
+                                <p class="pub-venue"><a href="https://dl.acm.org/journal/dtrap" target="_blank"
+                                        rel="noopener">ACM Digital Threats: Research and Practice</a>, Vol. 6,
+                                    Issue 2, pp. 1–25, June 2025</p>
+                            </div>
+                            <span class="pub-tag">Journal</span>
                         </li>
-                        <li class="publication-card" data-year="2025">
-                            A. Kulkarni, V. Balachandran and T. Das,
-                            <a href="https://ieeexplore.ieee.org/document/10633701" target="_blank" class="font-medium">
-                                "Phishing Webpage Detection: Unveiling the Threat Landscape and Investigating Detection
-                                Techniques,"
-                            </a>
-                            <span class="italic"><a href="https://www.comsoc.org/publications/journals/ieee-comst">IEEE
-                                    Communications Surveys & Tutorials</a></span>, Vol. 27, Issue 2, pp.
-                            974-1007,
-                            April 2025.
+                        <li class="pub" data-year="2025" data-type="journal">
+                            <img class="pub-logo" src="Publications/IEEE_COMST.gif" alt="IEEE COMST" width="194"
+                                height="265" loading="lazy" />
+                            <div class="pub-body">
+                                <a class="pub-title" href="https://ieeexplore.ieee.org/document/10633701"
+                                    target="_blank" rel="noopener">Phishing Webpage Detection: Unveiling the
+                                    Threat Landscape and Investigating Detection Techniques</a>
+                                <p class="pub-authors"><b>A. Kulkarni</b>, V. Balachandran and T. Das</p>
+                                <p class="pub-venue"><a href="https://www.comsoc.org/publications/journals/ieee-comst"
+                                        target="_blank" rel="noopener">IEEE Communications Surveys &amp;
+                                        Tutorials</a>, Vol. 27, Issue 2, pp. 974–1007, April 2025</p>
+                            </div>
+                            <span class="pub-tag">Journal</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="pub-block" data-block="conference">
+                    <div class="pub-block-head">
+                        <h3>Conferences and workshops</h3>
+                        <span class="pub-count"></span>
+                    </div>
+                    <ol class="pub-list">
+                        <li class="pub" data-year="2025" data-type="conference">
+                            <img class="pub-logo" src="Publications/COMSNETS.png" alt="COMSNETS" width="200"
+                                height="172" loading="lazy" />
+                            <div class="pub-body">
+                                <a class="pub-title" href="https://doi.org/10.1109/COMSNETS63942.2025.10885687"
+                                    target="_blank" rel="noopener">ODoQ: Oblivious DNS-over-QUIC</a>
+                                <p class="pub-authors"><b>A. Kulkarni</b>, T. Das and V. Balachandran</p>
+                                <p class="pub-venue"><a href="https://www.comsnets.org/" target="_blank"
+                                        rel="noopener">Internet Intelligence and Governance Workshop (IIGW),
+                                        IEEE/ACM COMSNETS</a>, Bengaluru, India, January 2025</p>
+                            </div>
+                            <span class="pub-tag">Workshop</span>
+                        </li>
+                        <li class="pub" data-year="2025" data-type="conference">
+                            <img class="pub-logo" src="Publications/COMSNETS.png" alt="COMSNETS" width="200"
+                                height="172" loading="lazy" />
+                            <div class="pub-body">
+                                <a class="pub-title" href="https://ieeexplore.ieee.org/document/10885743"
+                                    target="_blank" rel="noopener">Phish-Blitz: Advancing Phishing Detection with
+                                    Comprehensive Webpage Resource Collection and Visual Integrity
+                                    Preservation</a>
+                                <p class="pub-authors">H. Duddu, <b>A. Kulkarni</b>, V. Balachandran and T. Das
+                                </p>
+                                <p class="pub-venue"><a href="https://www.comsnets.org/" target="_blank"
+                                        rel="noopener">IEEE/ACM COMSNETS</a>, Bengaluru, India, January 2025</p>
+                            </div>
+                            <span class="pub-tag">Short paper</span>
+                        </li>
+                        <li class="pub" data-year="2024" data-type="conference">
+                            <img class="pub-logo" src="Publications/ICEI.jpg" alt="ICEI" width="154" height="150"
+                                loading="lazy" />
+                            <div class="pub-body">
+                                <a class="pub-title" href="https://doi.org/10.1109/ICEI64305.2024.10912416"
+                                    target="_blank" rel="noopener">Overcoming DNSSEC Islands of Security: A TLS
+                                    and IP-Based Certificate Solution</a>
+                                <p class="pub-authors">R. Aduma, <b>A. Kulkarni</b>, T. Das and V. Balachandran
+                                </p>
+                                <p class="pub-venue"><a href="https://enzored.risingbanyan.com/Ieee-conference/"
+                                        target="_blank" rel="noopener">IEEE Conference on Engineering
+                                        Informatics</a>, Dharwad, India, November 2024</p>
+                            </div>
+                            <span class="pub-tag">Conference</span>
+                        </li>
+                        <li class="pub" data-year="2024" data-type="conference">
+                            <img class="pub-logo" src="Publications/COMSNETS.png" alt="COMSNETS" width="200"
+                                height="172" loading="lazy" />
+                            <div class="pub-body">
+                                <a class="pub-title" href="https://doi.org/10.1109/COMSNETS59351.2024.10427170"
+                                    target="_blank" rel="noopener">Mitigating Bias in Machine Learning Models for
+                                    Phishing Webpage Detection</a>
+                                <p class="pub-authors"><b>A. Kulkarni</b>, V. Balachandran, D. M. Divakaran and
+                                    T. Das</p>
+                                <p class="pub-venue"><a href="https://www.comsnets.org/" target="_blank"
+                                        rel="noopener">16th IEEE/ACM COMSNETS, Graduate Forum</a>, Bengaluru,
+                                    India, January 2024</p>
+                            </div>
+                            <span class="pub-tag pub-tag-award">Honorable mention</span>
+                        </li>
+                        <li class="pub" data-year="2023" data-type="conference">
+                            <img class="pub-logo" src="Publications/IEEE_SOLI.png" alt="IEEE SOLI" width="452"
+                                height="458" loading="lazy" />
+                            <div class="pub-body">
+                                <a class="pub-title" href="https://doi.org/10.1109/SOLI60636.2023.10425260"
+                                    target="_blank" rel="noopener">Bridging the Gap in Phishing Detection: A
+                                    Comprehensive Phishing Dataset Collector</a>
+                                <p class="pub-authors"><b>A. Kulkarni</b>, S. Patel, S. Tirmare, V. Balachandran
+                                    and T. Das</p>
+                                <p class="pub-venue"><a
+                                        href="https://ieeexplore.ieee.org/xpl/conhome/10424968/proceeding"
+                                        target="_blank" rel="noopener">17th IEEE SOLI</a>, Singapore, December
+                                    2023</p>
+                            </div>
+                            <span class="pub-tag">Conference</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <p class="pub-empty" hidden>No publications from that year yet.</p>
+            </div>
+        </section>
+
+        <!-- ============ RECOGNITIONS ============ -->
+        <section id="recognitions" class="section section-tint">
+            <div class="wrap">
+                <h2 class="section-title">Milestones</h2>
+                <div class="milestones">
+                    <figure class="milestone">
+                        <button class="zoomable" data-group="milestones"
+                            data-src="recognitions/best%20paper-honorable_mention_COMSNETS%202024.pdf.webp"
+                            data-caption="Best Graduate Forum, Honorable Mention, COMSNETS 2024">
+                            <img src="recognitions/best%20paper-honorable_mention_COMSNETS%202024.pdf.webp"
+                                alt="COMSNETS 2024 honorable mention certificate" width="1024" height="724"
+                                loading="lazy" />
+                        </button>
+                        <figcaption><strong>Best Graduate Forum, Honorable Mention</strong><span>COMSNETS
+                                2024</span></figcaption>
+                    </figure>
+                    <figure class="milestone">
+                        <button class="zoomable" data-group="milestones"
+                            data-src="recognitions/Directors_Medal_MTech.JPG"
+                            data-caption="Director's Gold Medal, M.Tech, NIT Goa">
+                            <img src="recognitions/Directors_Medal_MTech.JPG" alt="Receiving the Director's Gold Medal"
+                                width="1304" height="869" loading="lazy" />
+                        </button>
+                        <figcaption><strong>Director's Gold Medal</strong><span>M.Tech, NIT Goa</span></figcaption>
+                    </figure>
+                    <figure class="milestone">
+                        <button class="zoomable" data-group="milestones" data-src="gallery/PhD_Convocation_2026.jpg"
+                            data-caption="PhD Convocation, IIT Dharwad, 2026">
+                            <img src="gallery/PhD_Convocation_2026.jpg" alt="At the PhD convocation" width="2548"
+                                height="2193" loading="lazy" />
+                        </button>
+                        <figcaption><strong>PhD Convocation</strong><span>IIT Dharwad, 2026</span></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TEACHING ============ -->
+        <!-- Grouped by subject. A course taught again? Add another <li> to its ta-terms list. -->
+        <section id="teaching" class="section">
+            <div class="wrap">
+                <h2 class="section-title">Teaching assistantships</h2>
+                <dl class="ta-stats">
+                    <div>
+                        <dt>Assistantships</dt>
+                        <dd>12</dd>
+                    </div>
+                    <div>
+                        <dt>Courses</dt>
+                        <dd>10</dd>
+                    </div>
+                    <div>
+                        <dt>Institutions</dt>
+                        <dd>2</dd>
+                    </div>
+                    <div>
+                        <dt>Years</dt>
+                        <dd>2022–25</dd>
+                    </div>
+                </dl>
+                <div class="ta-group">
+                    <h3 class="ta-group-title"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security and
+                        networks</h3>
+                    <ul class="ta-list">
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name"><span class="ta-code">CS621T</span>Cryptography and Network Security
+                                </p>
+                                <p class="ta-meta">IIT Dharwad, Prof. Tamal Das</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>Aug–Dec 2025</li>
+                            </ul>
+                        </li>
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name"><span class="ta-code">CS315 + CS348</span>Computer Networks</p>
+                                <p class="ta-meta">IIT Dharwad, Prof. Tamal Das</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>Jan–May 2025</li>
+                                <li>Jan–Apr 2024</li>
+                                <li>Feb–Apr 2023</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Conferences Card -->
-                <div id="conferences"
-                    class="bg-gradient-to-tr from-gray-800 via-slate-800 to-black rounded-2xl shadow-md p-6 hover:shadow-xl transition-all mb-8">
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-bold text-white">Conferences / Workshops</h4>
-                        <span class="bg-white text-[#39106E] text-sm font-semibold px-3 py-1 rounded-full">Total:
-                            <span id="conference-count">0</span>
-                        </span>
-                    </div>
-                    <ul class="space-y-4 text-white text-sm leading-snug list-decimal list-outside pl-6 pub-list">
-                        <!-- Example Items -->
-                        <li class="publication-card" data-year="2025">
-                            A. Kulkarni, T. Das, and V. Balachandran,
-                            <a href="https://doi.org/10.1109/COMSNETS63942.2025.10885687" target="_blank"
-                                class="font-medium">
-                                "ODoQ: Oblivious DNS-over-QUIC,"
-                            </a>
-                            <span class="italic"><a href="https://www.comsnets.org/">Internet Intelligence and
-                                    Governance
-                                    Workshop (IIGW), IEEE/ACM International Conference on COMmunication Systems &
-                                    NETworkS
-                                    (COMSNETS)</a></span>,
-                            Bengaluru, India, January 2025.
+                <div class="ta-group">
+                    <h3 class="ta-group-title"><i class="fa-solid fa-code" aria-hidden="true"></i> Programming and
+                        algorithms</h3>
+                    <ul class="ta-list">
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name"><span class="ta-code">CS101</span>Intro to Programming</p>
+                                <p class="ta-meta">IIT Dharwad, Profs. Siba Narayan Swain and Jivnesh</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>Aug–Dec 2024</li>
+                            </ul>
                         </li>
-                        <li class="publication-card" data-year="2025">
-                            H. Duddu, A. Kulkarni, V. Balachandran and T. Das,
-                            <a href="https://ieeexplore.ieee.org/document/10885743" target="_blank" class="font-medium">
-                                "Phish-Blitz: Advancing Phishing Detection with Comprehensive Webpage Resource
-                                Collection
-                                and Visual Integrity Preservation,"
-                            </a>
-                            <span class="italic"><a href="https://www.comsnets.org/">IEEE/ACM International Conference
-                                    on
-                                    COMmunication Systems & NETworkS (COMSNETS)</a></span>, Bengaluru, India, January
-                            2025.
-                            [Short Paper]
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name">Python Programming</p>
+                                <p class="ta-meta">IIM Rohtak, Prof. Tamal Das</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>2024</li>
+                            </ul>
                         </li>
-                        <li class="publication-card" data-year="2024">
-                            R. Aduma, A. Kulkarni, T. Das and V. Balachandran,
-                            <a href="https://doi.org/10.1109/ICEI64305.2024.10912416" target="_blank"
-                                class="font-medium">
-                                "Overcoming DNSSEC Islands of Security: A TLS and IP-Based Certificate Solution,"
-                            </a>
-                            <span class="italic"><a href="https://enzored.risingbanyan.com/Ieee-conference/">IEEE
-                                    Conference
-                                    on Engineering Informatics</a></span>, Dharwad, India, November 2024.
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name"><span class="ta-code">CS103</span>Intro to Programming</p>
+                                <p class="ta-meta">IIT Dharwad, Profs. Kedar Kandeparkar and Prabhuchandran</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>Aug–Dec 2023</li>
+                            </ul>
                         </li>
-                        <li class="publication-card" data-year="2024">
-                            A. Kulkarni, V. Balachandran, D. M. Divakaran and T. Das,
-                            <a href="https://doi.org/10.1109/COMSNETS59351.2024.10427170" target="_blank"
-                                class="font-medium">
-                                "Mitigating Bias in Machine Learning Models for Phishing Webpage Detection,"
-                            </a>
-                            <span class="italic"><a href="https://www.comsnets.org/">16th IEEE/ACM International
-                                    Conference
-                                    on COMmunication Systems & NETworkS (COMSNETS) [Graduate Forum]</a></span>,
-                            Bengaluru,
-                            India, January 2024.
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name"><span class="ta-code">CS211</span>DSA Theory and Lab</p>
+                                <p class="ta-meta">IIT Dharwad, Prof. Koteshwar Rao Kondepu</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>May–Jul 2023</li>
+                            </ul>
                         </li>
-                        <li class="publication-card" data-year="2023">
-                            A. Kulkarni, S. Patel, S. Tirmare, V. Balachandran, and T. Das,
-                            <a href="https://doi.org/10.1109/SOLI60636.2023.10425260" target="_blank"
-                                class="font-medium">
-                                "Bridging the Gap in Phishing Detection: A Comprehensive Phishing Dataset Collector,"
-                            </a>
-                            <span class="italic"><a
-                                    href="https://ieeexplore.ieee.org/xpl/conhome/10424968/proceeding">17th IEEE
-                                    International Conference on
-                                    Service Operations and Logistics, and Informatics (SOLI)</a></span>, Singapore,
-                            December
-                            2023.
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name"><span class="ta-code">CS101</span>Intro to C Programming</p>
+                                <p class="ta-meta">IIT Dharwad, Profs. Nikhil Hegde and Pawade</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>Dec 2022–Jan 2023</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Script to auto-count -->
-                <script>
-                    document.getElementById("journal-count").textContent = document.querySelectorAll("#journals ul li").length;
-                    document.getElementById("conference-count").textContent = document.querySelectorAll("#conferences ul li").length;
-                </script>
-
-                <!-- JS for filtering -->
-                <script>
-                    (() => {
-                        const filterBtns = document.querySelectorAll('.year-filter-btn');
-                        const sections = [{ id: 'journals' }, { id: 'conferences' }];
-
-                        function applyFilter(year) {
-                            sections.forEach(({ id }) => {
-                                const section = document.getElementById(id);
-                                if (!section) return;
-
-                                const items = Array.from(section.querySelectorAll('.publication-card'));
-                                let visibleCount = 0;
-
-                                items.forEach(item => {
-                                    const match = (year === 'all') || (item.dataset.year === year);
-                                    item.style.display = match ? 'list-item' : 'none';
-                                    if (match) visibleCount++;
-                                });
-
-                                const badge = section.querySelector('span span');
-                                if (badge) { badge.textContent = visibleCount; }
-
-                                section.style.display = (year === 'all' || visibleCount > 0) ? 'block' : 'none';
-                            });
-                        }
-
-                        filterBtns.forEach(btn => {
-                            btn.addEventListener('click', () => {
-                                const year = btn.dataset.year;
-                                filterBtns.forEach(b => {
-                                    b.classList.remove('bg-blue-700', 'text-white');
-                                    b.classList.add('bg-gray-200', 'text-gray-700');
-                                });
-                                btn.classList.add('bg-blue-700', 'text-white');
-                                btn.classList.remove('bg-gray-200', 'text-gray-700');
-                                applyFilter(year);
-                            });
-                        });
-
-                        applyFilter('all');
-                    })();
-                </script>
-            </div>
-        </section>
-
-        <!-- Recognitions -->
-        <section id="recognitions"
-            class="py-8 bg-gradient-to-tr from-indigo-100 via-violet-100 to-purple-100 scroll-mt-24 mt-12 rounded-2xl px-4 shadow-lg">
-            <div class="max-w-7xl mx-auto">
-                <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-6 relative inline-block">
-                    <span class="px-4 py-2 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-award text-yellow-500"></i>
-                        Achievements/Recognitions
-                    </span>
-                </h3>
-                <div class="flex justify-center gap-6">
-                    <div class="relative group rounded-xl overflow-hidden shadow-md border flex-1">
-                        <img src="./recognitions/best paper-honorable_mention_COMSNETS 2024.pdf.webp"
-                            alt="Award Certificate" class="w-full h-72 object-cover">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="text-white text-center text-sm font-medium px-4">
-                                Best Graduate Forum Honorable Mention Award<br>COMSNETS 2024
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="relative group rounded-xl overflow-hidden shadow-md border flex-1">
-                        <img src="./recognitions/Directors_Medal_MTech.JPG" alt="Director's Gold Medal"
-                            class="w-full h-72 object-cover">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="text-white text-center text-sm font-medium px-4">
-                                Director's Gold Medal - M.Tech (NIT Goa)
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="relative group rounded-xl overflow-hidden shadow-md border flex-1">
-                        <img src="./gallery/PhD_Convocation_2026.jpg" alt="PhD Convocation"
-                            class="w-full h-72 object-cover">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p class="text-white text-center text-sm font-medium px-4">
-                                PhD Convocation 2026 (IIT Dharwad)
-                            </p>
-                        </div>
-                    </div>
+                <div class="ta-group">
+                    <h3 class="ta-group-title"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Systems
+                        and engineering</h3>
+                    <ul class="ta-list">
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name">Web-based Development</p>
+                                <p class="ta-meta">IIM Rohtak, Prof. Tamal Das</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>2024</li>
+                            </ul>
+                        </li>
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name">Hands on Engineering</p>
+                                <p class="ta-meta">IIT Dharwad, Prof. Gayatri</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>May 2023</li>
+                            </ul>
+                        </li>
+                        <li class="ta-row">
+                            <div class="ta-course">
+                                <p class="ta-name"><span class="ta-code">CS213</span>Software Systems Laboratory</p>
+                                <p class="ta-meta">IIT Dharwad, Prof. Tamal Das</p>
+                            </div>
+                            <ul class="ta-terms">
+                                <li>Aug–Nov 2022</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- TA Duties -->
-        <section id="ta" class="mt-16 scroll-mt-24">
-            <div class="bg-white rounded-2xl shadow-lg p-8 bg-gradient-to-tr from-rose-100 via-pink-100 to-fuchsia-100">
-                <h3 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                    <i class="fa-solid fa-chalkboard-user text-indigo-600"></i> TA Duties
-                </h3>
-                <p class="mt-2 text-gray-600 text-sm">Click on a year to expand and see detailed TA responsibilities.
-                </p>
+        <!-- ============ GALLERY ============ -->
+        <section id="gallery" class="section section-tint">
+            <div class="wrap">
+                <h2 class="section-title">Gallery</h2>
 
-                <div class="mt-6 space-y-4" x-data="{open: null}">
-
-                    <!-- 2025 -->
-                    <div class="border rounded-xl shadow-sm overflow-hidden">
-                        <button
-                            class="w-full flex justify-between items-center p-4 text-left font-semibold text-rose-700 hover:bg-rose-50 transition"
-                            @click="open === 2025 ? open = null : open = 2025">
-                            2025
-                            <i :class="open === 2025 ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa-solid"></i>
-                        </button>
-                        <div x-show="open === 2025" x-transition class="p-4 border-t text-sm text-gray-700 space-y-2">
-                            <p><strong>CS621T: Cryptography and Network Security</strong> &mdash; IIT Dharwad (Prof.
-                                Tamal Das), Aug-Dec 2025</p>
-                            <p><strong>CS315 + CS348: Computer Networks</strong> &mdash; IIT Dharwad (Prof. Tamal Das),
-                                Jan-May 2025</p>
+                <div class="carousel" aria-roledescription="carousel" aria-label="Photo gallery">
+                    <div class="carousel-viewport" tabindex="0">
+                        <div class="carousel-track">
+                            <figure class="slide">
+                                <button class="zoomable slide-frame" data-group="gallery"
+                                    data-src="gallery/2_Aditya_COMSNETS_2025.jpg"
+                                    data-caption="Presenting at COMSNETS 2025">
+                                    <img src="gallery/2_Aditya_COMSNETS_2025.jpg" alt="Presenting at COMSNETS 2025"
+                                        width="8256" height="5504" loading="lazy" />
+                                </button>
+                                <figcaption><strong>COMSNETS 2025</strong><span>Bengaluru</span></figcaption>
+                            </figure>
+                            <figure class="slide">
+                                <button class="zoomable slide-frame" data-group="gallery"
+                                    data-src="gallery/3_Aditya_COMSNETS_2025.jpg" data-caption="At COMSNETS 2025">
+                                    <img src="gallery/3_Aditya_COMSNETS_2025.jpg" alt="At COMSNETS 2025" width="8256"
+                                        height="5504" loading="lazy" />
+                                </button>
+                                <figcaption><strong>COMSNETS 2025</strong><span>Bengaluru</span></figcaption>
+                            </figure>
+                            <figure class="slide">
+                                <button class="zoomable slide-frame" data-group="gallery"
+                                    data-src="recognitions/Directors_Medal_MTech.JPG"
+                                    data-caption="Director's Gold Medal, NIT Goa">
+                                    <img src="recognitions/Directors_Medal_MTech.JPG"
+                                        alt="Receiving the Director's Gold Medal at NIT Goa" width="1304" height="869"
+                                        loading="lazy" />
+                                </button>
+                                <figcaption><strong>Director's Gold Medal</strong><span>NIT Goa</span></figcaption>
+                            </figure>
+                            <figure class="slide">
+                                <button class="zoomable slide-frame" data-group="gallery"
+                                    data-src="gallery/CSE_Conclave_2026.JPG" data-caption="CSE Conclave 2026">
+                                    <img src="gallery/CSE_Conclave_2026.JPG" alt="At the CSE Conclave 2026" width="4592"
+                                        height="3448" loading="lazy" />
+                                </button>
+                                <figcaption><strong>CSE Conclave</strong><span>2026</span></figcaption>
+                            </figure>
+                            <figure class="slide">
+                                <button class="zoomable slide-frame" data-group="gallery"
+                                    data-src="gallery/PhD_Convocation_2026.jpg"
+                                    data-caption="PhD Convocation 2026, IIT Dharwad">
+                                    <img src="gallery/PhD_Convocation_2026.jpg"
+                                        alt="At the PhD convocation, IIT Dharwad" width="2548" height="2193"
+                                        loading="lazy" />
+                                </button>
+                                <figcaption><strong>PhD Convocation</strong><span>IIT Dharwad, 2026</span></figcaption>
+                            </figure>
                         </div>
                     </div>
 
-                    <!-- 2024 -->
-                    <div class="border rounded-xl shadow-sm overflow-hidden">
-                        <button
-                            class="w-full flex justify-between items-center p-4 text-left font-semibold text-rose-700 hover:bg-rose-50 transition"
-                            @click="open === 2024 ? open = null : open = 2024">
-                            2024
-                            <i :class="open === 2024 ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa-solid"></i>
-                        </button>
-                        <div x-show="open === 2024" x-transition class="p-4 border-t text-sm text-gray-700 space-y-2">
-                            <p><strong>CS101: Intro to Programming</strong> &mdash; IIT Dharwad (Profs. Siba Narayan
-                                Swain & Jivnesh),
-                                Aug-Dec 2024</p>
-                            <p><strong>CS315 + CS348: Computer Networks</strong> &mdash; IIT Dharwad (Prof. Tamal Das),
-                                Jan-Apr 2024</p>
-                            <p><strong>Python Programming</strong> &mdash; IIM Rohtak (Prof. Tamal Das), 2024</p>
-                            <p><strong>Web-based Development</strong> &mdash; IIM Rohtak (Prof. Tamal Das), 2024</p>
-                        </div>
-                    </div>
-
-                    <!-- 2023 -->
-                    <div class="border rounded-xl shadow-sm overflow-hidden">
-                        <button
-                            class="w-full flex justify-between items-center p-4 text-left font-semibold text-rose-700 hover:bg-rose-50 transition"
-                            @click="open === 2023 ? open = null : open = 2023">
-                            2023
-                            <i :class="open === 2023 ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa-solid"></i>
-                        </button>
-                        <div x-show="open === 2023" x-transition class="p-4 border-t text-sm text-gray-700 space-y-2">
-                            <p><strong>CS103: Intro to Programming</strong> &mdash; IIT Dharwad (Profs. Kedar
-                                Kandeparkar & Prabhuchandran),
-                                Aug-Dec 2023</p>
-                            <p><strong>CS211: DSA Theory & Lab</strong> &mdash; IIT Dharwad (Prof. Koteshwar Rao
-                                Kondepu), May-Jul
-                                2023</p>
-                            <p><strong>Hands on Engineering</strong> &mdash; IIT Dharwad (Prof. Gayatri), May 2023</p>
-                            <p><strong>CS315 + CS348: Computer Networks</strong> &mdash; IIT Dharwad (Prof. Tamal Das),
-                                Feb-Apr 2023</p>
-                        </div>
-                    </div>
-
-                    <!-- 2022 -->
-                    <div class="border rounded-xl shadow-sm overflow-hidden">
-                        <button
-                            class="w-full flex justify-between items-center p-4 text-left font-semibold text-rose-700 hover:bg-rose-50 transition"
-                            @click="open === 2022 ? open = null : open = 2022">
-                            2022
-                            <i :class="open === 2022 ? 'fa-chevron-up' : 'fa-chevron-down'" class="fa-solid"></i>
-                        </button>
-                        <div x-show="open === 2022" x-transition class="p-4 border-t text-sm text-gray-700 space-y-2">
-                            <p><strong>CS101: Intro to C Programming</strong> &mdash; IIT Dharwad (Profs. Nikhil Hegde &
-                                Pawade), Dec
-                                2022 - Jan 2023</p>
-                            <p><strong>CS213: Software Systems Laboratory</strong> &mdash; IIT Dharwad (Prof. Tamal
-                                Das), Aug-Nov 2022</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery: carousel -->
-        <section id="gallery"
-            class="py-6 sm:py-8 bg-gradient-to-tr from-teal-100 via-emerald-100 to-green-100 scroll-mt-24 mt-6 rounded-2xl p-6 shadow-lg">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h3 class="section-title text-3xl font-bold text-gray-900 text-center mb-4 relative inline-block">
-                    <span class="px-4 py-2 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-image text-green-700"></i>
-                        Gallery
-                    </span>
-                </h3>
-
-                <div x-data="carousel({ imgs: [
-                        'gallery/2_Aditya_COMSNETS_2025.jpg',
-                        'gallery/3_Aditya_COMSNETS_2025.jpg',
-                        'recognitions/Directors_Medal_MTech.JPG',
-                        'gallery/CSE_Conclave_2026.JPG',
-                        'gallery/PhD_Convocation_2026.jpg'
-                    ] })" x-init="init()" @mouseenter="stopAuto()" @mouseleave="startAuto()"
-                    class="relative mt-4 max-w-5xl mx-auto">
-
-                    <!-- Viewport -->
-                    <div class="overflow-hidden rounded-2xl shadow" x-ref="viewport">
-                        <!-- Track -->
-                        <div class="flex items-center" :style="trackStyle" @transitionend="onTransitionEnd">
-                            <template x-for="(src, idx) in slides" :key="idx">
-                                <div class="flex-shrink-0 px-2 transition-all duration-500"
-                                    :style="`width:${viewportWidth * 0.8}px`" :class="(idx - 1 + imgs.length) % imgs.length === currentIndex
-                                                    ? 'opacity-100 scale-100'
-                                                    : 'opacity-40 scale-95'">
-                                    <div
-                                        class="relative h-64 sm:h-96 flex items-center justify-center rounded-xl overflow-hidden bg-transparent">
-
-                                        <img :src="src"
-                                            class="max-h-full max-w-full object-contain transition-transform duration-500 ease-in-out opacity-90 hover:opacity-100 hover:scale-105"
-                                            alt="Gallery photo" />
-
-                                        <!-- Event Ribbon -->
-                                        <div class="absolute top-2 left-1/2 -translate-x-1/2 pointer-events-none">
-                                            <div class="bg-gradient-to-r from-emerald-700 via-teal-600 to-emerald-700
-                                                    text-white text-sm font-semibold
-                                                    px-4 py-1 rounded-full shadow-lg">
-                                                <span x-text="[
-                                                        'COMSNETS 2025',
-                                                        'COMSNETS 2025',
-                                                        'Director\'s Gold Medal &ndash; NIT Goa',
-                                                        'CSE Conclave 2026',
-                                                        'PhD Convocation 2026'
-                                                    ][(idx - 1 + imgs.length) % imgs.length]">
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </template>
-                        </div>
-                    </div>
-
-                    <!-- Prev button -->
-                    <button @click="prev()"
-                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white"
-                        aria-label="Prev">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-
-                    <!-- Next button -->
-                    <button @click="next()"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur px-3 py-2 rounded-full shadow hover:bg-white"
-                        aria-label="Next">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Dots -->
-                    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-                        <template x-for="(src, idx) in imgs" :key="idx">
-                            <button @click="goTo(idx)" class="w-3 h-3 rounded-full border border-white/70"
-                                :class="idx === currentIndex ? 'bg-blue-600' : 'bg-white/70'"></button>
-                        </template>
+                    <div class="carousel-controls">
+                        <button class="icon-btn" data-dir="-1" aria-label="Previous photo"><i
+                                class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <div class="carousel-dots" role="tablist" aria-label="Choose photo"></div>
+                        <button class="icon-btn" data-dir="1" aria-label="Next photo"><i
+                                class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- ============ BEYOND RESEARCH: INTERESTS + SKETCHBOOK ============ -->
+        <section id="sketchbook" class="section">
+            <div class="wrap">
+                <h2 class="section-title">Beyond research</h2>
+                <p class="section-intro">What I do when I'm away from the keyboard.</p>
 
-        <script>
-            function carousel({ imgs }) {
-                return {
-                    imgs,
-                    slides: [],
-                    current: 1,
-                    viewportWidth: 0,
-                    transitioning: true,
-                    auto: null,
+                <!-- INTERESTS: copy one <li> to add another. Icons: https://fontawesome.com/search?ic=free -->
+                <ul class="interests">
+                    <li><i class="fa-solid fa-pencil" aria-hidden="true"></i> Sketching</li>
+                    <!-- <li><i class="fa-solid fa-book-open" aria-hidden="true"></i> Reading</li> -->
+                    <!-- <li><i class="fa-solid fa-person-hiking" aria-hidden="true"></i> Trekking</li> -->
+                    <!-- <li><i class="fa-solid fa-music" aria-hidden="true"></i> Music</li> -->
+                </ul>
 
-                    get trackStyle() {
-                        const slideWidth = this.viewportWidth * 0.8;
-                        const offset = this.current * slideWidth;
-
-                        const t = `transform: translateX(-${offset}px);`;
-                        const d = this.transitioning
-                            ? 'transition: transform 700ms ease-in-out;'
-                            : 'transition: none;';
-
-                        return t + d;
-                    },
-
-                    get currentIndex() {
-                        return (this.current - 1 + this.imgs.length) % this.imgs.length;
-                    },
-
-                    init() {
-
-                        if (!this.imgs || !this.imgs.length) this.imgs = [];
-
-                        /* create clone slides */
-                        this.slides = [
-                            this.imgs[this.imgs.length - 1],
-                            ...this.imgs,
-                            this.imgs[0]
-                        ];
-
-                        this.$nextTick(() => {
-                            this.updateWidth();
-                            window.addEventListener('resize', () => this.updateWidth());
-                        });
-
-                        this.startAuto();
-
-                        /* pause autoplay when tab inactive */
-                        document.addEventListener("visibilitychange", () => {
-                            if (document.hidden) this.stopAuto();
-                            else this.startAuto();
-                        });
-                    },
-
-                    updateWidth() {
-                        this.viewportWidth = this.$refs.viewport.clientWidth || 0;
-                    },
-
-                    prev() {
-                        this.move(-1);
-                    },
-
-                    next() {
-                        this.move(1);
-                    },
-
-                    move(step) {
-
-                        this.transitioning = true;
-                        this.current += step;
-
-                        /* handle infinite loop safely */
-                        setTimeout(() => {
-
-                            if (this.current === 0) {
-                                this.transitioning = false;
-                                this.current = this.imgs.length;
-                            }
-
-                            if (this.current === this.imgs.length + 1) {
-                                this.transitioning = false;
-                                this.current = 1;
-                            }
-
-                            this.$nextTick(() => {
-                                this.transitioning = true;
-                            });
-
-                        }, 700); // same as transition duration
-                    },
-
-                    goTo(index) {
-                        this.transitioning = true;
-                        this.current = index + 1;
-                    },
-
-                    startAuto() {
-                        this.stopAuto();
-                        this.auto = setInterval(() => {
-                            this.next();
-                        }, 4000);
-                    },
-
-                    stopAuto() {
-                        if (this.auto) clearInterval(this.auto);
-                    }
-                }
-            }
-        </script>
+                <h3 class="sub-title">Sketchbook</h3>
+                <!--
+                    SKETCHES: copy the image into sketches/, run  python tools\optimize_images.py,
+                    then copy one <figure class="sketch"> block below and change the file name and title.
+                -->
+                <div class="sketch-strip">
+                    <button class="icon-btn strip-btn" data-strip="-1" aria-label="Scroll sketches left"><i
+                            class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                    <div class="sketch-grid" tabindex="0" aria-label="Sketches">
+                        <figure class="sketch">
+                            <figcaption>Shiva Shankar</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/ShivaShankar.jpg"
+                                data-caption="Shiva Shankar">
+                                <img src="sketches/ShivaShankar.jpg" alt="Shiva Shankar"
+                                    loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Krishna</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Krishna.jpg"
+                                data-caption="Krishna">
+                                <img src="sketches/Krishna.jpg" alt="Krishna" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Shiva Parvati</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/ShivaParvati.jpg"
+                                data-caption="Shiva Parvati">
+                                <img src="sketches/ShivaParvati.jpg" alt="Shiva Parvati"
+                                    loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Dattatreya</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Dattatreya.jpg"
+                                data-caption="Dattatreya">
+                                <img src="sketches/Dattatreya.jpg" alt="Dattatreya" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Ganesha</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Ganesha.jpg"
+                                data-caption="Ganesha">
+                                <img src="sketches/Ganesha.jpg" alt="Ganesha" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Krishna and Radha</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/KrishnaRadha.jpg"
+                                data-caption="Krishna and Radha">
+                                <img src="sketches/KrishnaRadha.jpg" alt="Krishna and Radha"
+                                    loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Saraswati</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Saraswati.jpg"
+                                data-caption="Saraswati">
+                                <img src="sketches/Saraswati.jpg" alt="Saraswati" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Krishna</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Krishn.jpg"
+                                data-caption="Krishna">
+                                <img src="sketches/Krishn.jpg" alt="Krishna" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Arjun and Draupadi</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/ArjunDraupadi.jpg"
+                                data-caption="Arjun and Draupadi">
+                                <img src="sketches/ArjunDraupadi.jpg" alt="Arjun and Draupadi"
+                                    loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Abhimanyu</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Abhimanyu.jpg"
+                                data-caption="Abhimanyu">
+                                <img src="sketches/Abhimanyu.jpg" alt="Abhimanyu" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Doctor Strange</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/DRStrange.jpg"
+                                data-caption="Doctor Strange">
+                                <img src="sketches/DRStrange.jpg" alt="Doctor Strange" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Virat Kohli</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Kohli.jpg"
+                                data-caption="Virat Kohli">
+                                <img src="sketches/Kohli.jpg" alt="Virat Kohli" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Naruto Uzumaki</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Naruto.jpg"
+                                data-caption="Naruto Uzumaki">
+                                <img src="sketches/Naruto.jpg" alt="Naruto Uzumaki" loading="lazy" />
+                            </button>
+                        </figure>
+                        <figure class="sketch">
+                            <figcaption>Dhurandhar</figcaption>
+                            <button class="zoomable" data-group="sketches" data-src="sketches/Dhurandhar.jpg"
+                                data-caption="Dhurandhar">
+                                <img src="sketches/Dhurandhar.jpg" alt="Dhurandhar" loading="lazy" />
+                            </button>
+                        </figure>
+                    </div>
+                    <button class="icon-btn strip-btn" data-strip="1" aria-label="Scroll sketches right"><i
+                            class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+                <p class="sketch-empty">New sketches are on their way.</p>
+            </div>
+        </section>
     </main>
 
-    <footer id="contact"
-        class="bg-gradient-to-tr from-slate-900 via-indigo-900 to-purple-900 text-white border-t border-white/10 mt-12">
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    <!-- ============ FOOTER / CONTACT ============ -->
+    <footer id="contact" class="site-footer">
+        <div class="wrap footer-grid">
             <div>
-                <p class="font-semibold text-white">Aditya Kulkarni</p>
-                <p class="text-sm text-slate-300">Ph.D. @ IIT Dharwad in Dept. of CSE</p>
+                <h2 class="footer-title">Get in touch</h2>
+                <p class="footer-text">I would be glad to hear from you regarding research collaborations,
+                    or any questions about my publications and datasets.</p><a class="btn btn-primary"
+                    href="mailto:aditya.kulkarni@prjt.cse.iith.ac.in">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i> aditya.kulkarni@prjt.cse.iith.ac.in
+                </a>
             </div>
-
-            <div class="flex items-center gap-4">
-                <!-- Email -->
-                <a href="mailto:aditya.kulkarni@iitdh.ac.in" aria-label="Email Aditya" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400
-                hover:bg-gradient-to-tr hover:from-indigo-500 hover:to-indigo-700" title="Email">
-                    <i class="fa-solid fa-envelope text-white/80 transition-colors group-hover:text-white"></i>
-                </a>
-
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/aditya-kulkarni-172643150" target="_blank" rel="noopener"
-                    aria-label="LinkedIn" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400
-                hover:bg-gradient-to-tr hover:from-blue-600 hover:to-cyan-500" title="LinkedIn">
-                    <i class="fa-brands fa-linkedin text-white/80 transition-colors"></i>
-                </a>
-
-                <!-- GitHub -->
-                <a href="https://github.com/LetsBeSecure" target="_blank" rel="noopener" aria-label="GitHub" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500
-                hover:bg-gradient-to-tr hover:from-gray-800 hover:to-gray-600" title="GitHub">
-                    <i class="fa-brands fa-github text-white/80 transition-colors"></i>
-                </a>
-
-                <!-- Google Scholar -->
-                <a href="https://scholar.google.com/citations?user=cj3PTEkAAAAJ&hl" target="_blank" rel="noopener"
-                    aria-label="Google Scholar" class="w-11 h-11 rounded-full flex items-center justify-center bg-white/5 border border-white/10 shadow-sm transition transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-300
-                hover:bg-gradient-to-tr hover:from-emerald-500 hover:to-teal-400" title="Google Scholar">
-                    <i class="fa-solid fa-graduation-cap text-white/80 transition-colors"></i>
-                </a>
+            <div class="footer-side">
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/aditya-kulkarni-172643150" target="_blank" rel="noopener"
+                        aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://github.com/LetsBeSecure" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class="fa-brands fa-github" aria-hidden="true"></i></a>
+                    <a href="https://scholar.google.com/citations?user=cj3PTEkAAAAJ&hl" target="_blank" rel="noopener"
+                        aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></a>
+                </div>
+                <p class="footer-small">&copy; <span id="year">2026</span> Aditya Kulkarni</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu event listener (simple)
-        window.addEventListener('open-mobile', () => {
-            alert('Mobile menu — you can add a mobile drawer here.');
-        });
-
-        // Carousel implementation (copied from user-provided code, converted for Alpine)
-        function carousel({ imgs }) {
-            return {
-                imgs,
-                slides: [],
-                current: 1,
-                viewportWidth: 0,
-                transitioning: true,
-                auto: null,
-
-                get trackStyle() {
-                    const slideWidth = this.viewportWidth * 0.8;
-                    const centerOffset = (this.viewportWidth - slideWidth) / 2;
-                    const offset = this.current * slideWidth - centerOffset;
-                    const t = `transform: translateX(-${offset}px);`;
-                    const d = this.transitioning ? 'transition: transform 700ms ease-in-out;' : 'transition: none;';
-                    return t + d;
-                },
-
-                get currentIndex() {
-                    return (this.current - 1 + this.imgs.length) % this.imgs.length;
-                },
-
-                init() {
-                    if (!this.imgs || !this.imgs.length) this.imgs = [];
-                    this.slides = [this.imgs[this.imgs.length - 1], ...this.imgs, this.imgs[0]];
-                    this.$nextTick(() => {
-                        this.updateWidth();
-                        window.addEventListener('resize', () => this.updateWidth());
-                    });
-                    this.startAuto();
-
-                    document.addEventListener("visibilitychange", () => {
-                        if (!document.hidden) {
-                            this.transitioning = false;
-                            this.current = 1;
-                            this.$nextTick(() => { this.transitioning = true; });
-                        }
-                    });
-                },
-
-                updateWidth() { this.viewportWidth = this.$refs.viewport.clientWidth || 0; },
-                prev() { this.transitioning = true; this.current--; },
-                next() { this.transitioning = true; this.current++; },
-
-                onTransitionEnd() {
-                    if (this.current === 0) { this.transitioning = false; this.current = this.imgs.length; }
-                    if (this.current === this.imgs.length + 1) { this.transitioning = false; this.current = 1; }
-                    setTimeout(() => { this.transitioning = true; }, 20);
-                },
-
-                goTo(index) { this.transitioning = true; this.current = index + 1; },
-                startAuto() { this.stopAuto(); this.auto = setInterval(() => { this.next() }, 4000); },
-                stopAuto() { if (this.auto) clearInterval(this.auto); }
-            }
-        }
-    </script>
-
-    <!-- Scroll To Top Button -->
-    <button id="scrollTopBtn" class="fixed bottom-6 right-6 hidden items-center justify-center
-        w-12 h-12 rounded-full text-white
-        bg-gradient-to-tr from-indigo-500 to-sky-500
-        shadow-lg shadow-indigo-400/30
-        transition-all duration-300 ease-out
-        hover:scale-110 hover:rotate-6 hover:shadow-xl hover:shadow-sky-400/40
-        active:scale-95">
-        <i class="fa-solid fa-arrow-up"></i>
+    <!-- Back to top -->
+    <button id="to-top" class="to-top" type="button" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
-    <script>
-        const scrollBtn = document.getElementById("scrollTopBtn");
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                scrollBtn.classList.remove("hidden");
-                scrollBtn.classList.add("flex");
-            }
-            else {
-                scrollBtn.classList.add("hidden");
-                scrollBtn.classList.remove("flex");
-            }
-        });
-        scrollBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    </script>
+
+    <!-- Lightbox (shared by milestones, sketches and gallery) -->
+    <dialog id="lightbox" class="lightbox" aria-label="Image viewer">
+        <figure class="lightbox-figure">
+            <img id="lightbox-img" alt="" />
+            <figcaption id="lightbox-caption"></figcaption>
+        </figure>
+        <button class="lb-btn lb-close" data-lb="close" aria-label="Close"><i class="fa-solid fa-xmark"
+                aria-hidden="true"></i></button>
+        <button class="lb-btn lb-prev" data-lb="-1" aria-label="Previous image"><i class="fa-solid fa-chevron-left"
+                aria-hidden="true"></i></button>
+        <button class="lb-btn lb-next" data-lb="1" aria-label="Next image"><i class="fa-solid fa-chevron-right"
+                aria-hidden="true"></i></button>
+    </dialog>
 </body>
 
 </html>
