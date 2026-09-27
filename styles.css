@@ -1486,3 +1486,9 @@ button {
     margin-top: .9rem !important;
     color: var(--muted);
 }
+
+.about-wide p {
+    max-width: none;
+    text-align: justify;
+    hyphens: auto;
+}
