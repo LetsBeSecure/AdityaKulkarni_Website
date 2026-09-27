@@ -861,6 +861,8 @@ button {
     display: flex;
     flex-direction: column;
     padding: .9rem 1.1rem 1.1rem;
+    align-items: center;
+    text-align: center;
 }
 
 .milestone figcaption span {
