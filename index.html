@@ -33,8 +33,16 @@
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Dancing+Script:wght@600&family=Tiro+Devanagari+Sanskrit&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Dancing+Script:wght@600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="diary.css" />
+    <script src="diary.js" defer></script>
 </head>
 
 <body>
@@ -57,7 +65,7 @@
                 <a href="#publications">Publications</a>
                 <a href="#teaching">Teaching</a>
                 <a href="#gallery">Gallery</a>
-                <a href="#sketchbook">Interests</a>
+                <a href="#sketchbook">Sketchbook</a>
                 <a href="#contact" class="nav-cta">Contact</a>
             </nav>
 
@@ -269,8 +277,8 @@
                             <img class="pub-logo" src="Publications/IEEE_COMST.gif" alt="IEEE COMST" width="194"
                                 height="265" loading="lazy" />
                             <div class="pub-body">
-                                <a class="pub-title" href="https://doi.org/10.1109/COMST.2024.3441752"
-                                    target="_blank" rel="noopener">Phishing Webpage Detection: Unveiling the
+                                <a class="pub-title" href="https://doi.org/10.1109/COMST.2024.3441752" target="_blank"
+                                    rel="noopener">Phishing Webpage Detection: Unveiling the
                                     Threat Landscape and Investigating Detection Techniques</a>
                                 <p class="pub-authors"><b>A. Kulkarni</b>, V. Balachandran and T. Das</p>
                                 <p class="pub-venue"><a href="https://www.comsoc.org/publications/journals/ieee-comst"
@@ -544,201 +552,164 @@
         </section>
 
         <!-- ============ GALLERY ============ -->
+        <!--
+            Shown as a grid (same style as Milestones) while there are only a few photos.
+            To add a photo: copy one <figure class="milestone"> block and change the image and caption.
+            Once there are 6+ photos, we can switch back to the carousel.
+        -->
         <section id="gallery" class="section section-tint">
             <div class="wrap">
                 <h2 class="section-title">Gallery</h2>
-
-                <div class="carousel" aria-roledescription="carousel" aria-label="Photo gallery">
-                    <div class="carousel-viewport" tabindex="0">
-                        <div class="carousel-track">
-                            <figure class="slide">
-                                <button class="zoomable slide-frame" data-group="gallery"
-                                    data-src="gallery/2_Aditya_COMSNETS_2025.jpg"
-                                    data-caption="Presenting at COMSNETS 2025">
-                                    <img src="gallery/2_Aditya_COMSNETS_2025.jpg" alt="Presenting at COMSNETS 2025"
-                                        width="8256" height="5504" loading="lazy" />
-                                </button>
-                                <figcaption><strong>COMSNETS 2025</strong><span>Bengaluru</span></figcaption>
-                            </figure>
-                            <figure class="slide">
-                                <button class="zoomable slide-frame" data-group="gallery"
-                                    data-src="gallery/3_Aditya_COMSNETS_2025.jpg" data-caption="At COMSNETS 2025">
-                                    <img src="gallery/3_Aditya_COMSNETS_2025.jpg" alt="At COMSNETS 2025" width="8256"
-                                        height="5504" loading="lazy" />
-                                </button>
-                                <figcaption><strong>COMSNETS 2025</strong><span>Bengaluru</span></figcaption>
-                            </figure>
-                            <figure class="slide">
-                                <button class="zoomable slide-frame" data-group="gallery"
-                                    data-src="recognitions/Directors_Medal_MTech.JPG"
-                                    data-caption="Director's Gold Medal, NIT Goa">
-                                    <img src="recognitions/Directors_Medal_MTech.JPG"
-                                        alt="Receiving the Director's Gold Medal at NIT Goa" width="1304" height="869"
-                                        loading="lazy" />
-                                </button>
-                                <figcaption><strong>Director's Gold Medal</strong><span>NIT Goa</span></figcaption>
-                            </figure>
-                            <figure class="slide">
-                                <button class="zoomable slide-frame" data-group="gallery"
-                                    data-src="gallery/CSE_Conclave_2026.JPG" data-caption="CSE Conclave 2026">
-                                    <img src="gallery/CSE_Conclave_2026.JPG" alt="At the CSE Conclave 2026" width="4592"
-                                        height="3448" loading="lazy" />
-                                </button>
-                                <figcaption><strong>CSE Conclave</strong><span>2026</span></figcaption>
-                            </figure>
-                            <figure class="slide">
-                                <button class="zoomable slide-frame" data-group="gallery"
-                                    data-src="gallery/PhD_Convocation_2026.jpg"
-                                    data-caption="PhD Convocation 2026, IIT Dharwad">
-                                    <img src="gallery/PhD_Convocation_2026.jpg"
-                                        alt="At the PhD convocation, IIT Dharwad" width="2548" height="2193"
-                                        loading="lazy" />
-                                </button>
-                                <figcaption><strong>PhD Convocation</strong><span>IIT Dharwad, 2026</span></figcaption>
-                            </figure>
-                        </div>
-                    </div>
-
-                    <div class="carousel-controls">
-                        <button class="icon-btn" data-dir="-1" aria-label="Previous photo"><i
-                                class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-                        <div class="carousel-dots" role="tablist" aria-label="Choose photo"></div>
-                        <button class="icon-btn" data-dir="1" aria-label="Next photo"><i
-                                class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-                    </div>
+                <div class="milestones">
+                    <figure class="milestone">
+                        <button class="zoomable" data-group="gallery" data-src="gallery/CSE_Conclave_2026.JPG"
+                            data-caption="CSE Conclave 2026">
+                            <img src="gallery/CSE_Conclave_2026.JPG" alt="At the CSE Conclave 2026" width="2000"
+                                height="1502" loading="lazy" />
+                        </button>
+                        <figcaption><strong>CSE Conclave</strong><span>2026</span></figcaption>
+                    </figure>
+                    <figure class="milestone">
+                        <button class="zoomable" data-group="gallery" data-src="gallery/2_Aditya_COMSNETS_2025.jpg"
+                            data-caption="Presenting at COMSNETS 2025, Bengaluru">
+                            <img src="gallery/2_Aditya_COMSNETS_2025.jpg" alt="Presenting at COMSNETS 2025" width="2000"
+                                height="1333" loading="lazy" />
+                        </button>
+                        <figcaption><strong>COMSNETS 2025</strong><span>Bengaluru</span></figcaption>
+                    </figure>
+                    <figure class="milestone">
+                        <button class="zoomable" data-group="gallery" data-src="gallery/3_Aditya_COMSNETS_2025.jpg"
+                            data-caption="At COMSNETS 2025, Bengaluru">
+                            <img src="gallery/3_Aditya_COMSNETS_2025.jpg" alt="At COMSNETS 2025" width="2000"
+                                height="1333" loading="lazy" />
+                        </button>
+                        <figcaption><strong>COMSNETS 2025</strong><span>Bengaluru</span></figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
+
         <!-- ============ BEYOND RESEARCH: INTERESTS + SKETCHBOOK ============ -->
         <section id="sketchbook" class="section">
             <div class="wrap">
                 <h2 class="section-title">Beyond research</h2>
                 <p class="section-intro">What I do when I'm away from the keyboard.</p>
-
-                <!-- INTERESTS: copy one <li> to add another. Icons: https://fontawesome.com/search?ic=free -->
-                <ul class="interests">
-                    <li><i class="fa-solid fa-pencil" aria-hidden="true"></i> Sketching</li>
-                    <!-- <li><i class="fa-solid fa-book-open" aria-hidden="true"></i> Reading</li> -->
-                    <!-- <li><i class="fa-solid fa-person-hiking" aria-hidden="true"></i> Trekking</li> -->
-                    <!-- <li><i class="fa-solid fa-music" aria-hidden="true"></i> Music</li> -->
-                </ul>
-
                 <h3 class="sub-title">Sketchbook</h3>
                 <!--
-                    SKETCHES: copy the image into sketches/, run  python tools\optimize_images.py,
-                    then copy one <figure class="sketch"> block below and change the file name and title.
+                    SKETCH DIARY
+                    - Cover text: edit inside <template class="diary-cover"> below.
+                    - Add a sketch: copy one <li>. data-src = image, data-title = name,
+                      data-meta = small line under it, text inside <li> = short description (optional).
+                    - data-interval = milliseconds per page (4500 = 4.5 s).
                 -->
-                <div class="sketch-strip">
-                    <button class="icon-btn strip-btn" data-strip="-1" aria-label="Scroll sketches left"><i
-                            class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-                    <div class="sketch-grid" tabindex="0" aria-label="Sketches">
-                        <figure class="sketch">
-                            <figcaption>Shiva Shankar</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/ShivShankar.jpg"
-                                data-caption="Shiva Shankar">
-                                <img src="sketches/ShivShankar.jpg" alt="Shiva Shankar"
-                                    loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Krishna</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Krishna.jpg"
-                                data-caption="Krishna">
-                                <img src="sketches/Krishna.jpg" alt="Krishna" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Shiva Parvati</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/ShivaParvati.jpg"
-                                data-caption="Shiva Parvati">
-                                <img src="sketches/ShivaParvati.jpg" alt="Shiva Parvati"
-                                    loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Dattatreya</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Dattatreya.jpg"
-                                data-caption="Dattatreya">
-                                <img src="sketches/Dattatreya.jpg" alt="Dattatreya" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Ganesha</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Ganesha.jpg"
-                                data-caption="Ganesha">
-                                <img src="sketches/Ganesha.jpg" alt="Ganesha" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Krishna and Radha</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/KrishnaRadha.jpg"
-                                data-caption="Krishna and Radha">
-                                <img src="sketches/KrishnaRadha.jpg" alt="Krishna and Radha"
-                                    loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Saraswati</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Saraswati.jpg"
-                                data-caption="Saraswati">
-                                <img src="sketches/Saraswati.jpg" alt="Saraswati" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Krishna</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Krishn.jpg"
-                                data-caption="Krishna">
-                                <img src="sketches/Krishn.jpg" alt="Krishna" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Arjun and Draupadi</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/ArjunDraupadi.jpg"
-                                data-caption="Arjun and Draupadi">
-                                <img src="sketches/ArjunDraupadi.jpg" alt="Arjun and Draupadi"
-                                    loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Abhimanyu</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Abhimanyu.jpg"
-                                data-caption="Abhimanyu">
-                                <img src="sketches/Abhimanyu.jpg" alt="Abhimanyu" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Doctor Strange</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/DRStrange.jpg"
-                                data-caption="Doctor Strange">
-                                <img src="sketches/DRStrange.jpg" alt="Doctor Strange" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Virat Kohli</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Kohli.jpg"
-                                data-caption="Virat Kohli">
-                                <img src="sketches/Kohli.jpg" alt="Virat Kohli" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Naruto Uzumaki</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Naruto.jpg"
-                                data-caption="Naruto Uzumaki">
-                                <img src="sketches/Naruto.jpg" alt="Naruto Uzumaki" loading="lazy" />
-                            </button>
-                        </figure>
-                        <figure class="sketch">
-                            <figcaption>Dhurandhar</figcaption>
-                            <button class="zoomable" data-group="sketches" data-src="sketches/Dhurandhar.jpg"
-                                data-caption="Dhurandhar">
-                                <img src="sketches/Dhurandhar.jpg" alt="Dhurandhar" loading="lazy" />
-                            </button>
-                        </figure>
+                <div class="diary" data-interval="4500" data-sign="Aditya"
+                    data-end-text="Thank you for turning these pages." aria-label="Sketch diary">
+                    <div class="diary-stage">
+                        <div class="book is-closed"></div>
                     </div>
-                    <button class="icon-btn strip-btn" data-strip="1" aria-label="Scroll sketches right"><i
-                            class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+
+                    <div class="diary-controls">
+                        <button class="diary-btn" type="button" data-diary="prev"
+                            aria-label="Previous page">&#8249;</button>
+                        <button class="diary-btn" type="button" data-diary="play"
+                            aria-label="Pause page turning"></button>
+                        <button class="diary-btn" type="button" data-diary="next"
+                            aria-label="Next page">&#8250;</button>
+                        <span class="diary-count" aria-live="polite"></span>
+                    </div>
+
+                    <template class="diary-cover">
+                        <div class="cover-frame">
+                            <span class="cover-ornament">&#10022; &#10022; &#10022;</span>
+                            <p class="cover-title">Sketchbook</p>
+                            <p class="cover-message">Between papers and proofs,<br />a few quiet lines of
+                                graphite,<br />kept here with care.</p>
+                            <p class="cover-sign">Aditya</p>
+                            <span class="cover-hint">Tap to open</span>
+                        </div>
+                    </template>
+
+                    <ol class="diary-data" hidden>
+                        <li data-src="sketches/ShivShankar.jpg" data-title="Shiv Shankar"
+                            data-meta="Pencil on paper, 2025"
+                            data-meaning="We worship the three-eyed One, fragrant, who nourishes all. As a ripe cucumber is freed from its stalk, may He free us from death, not from immortality."
+                            data-ref="Rigveda 7.59.12 (Mahāmṛtyuñjaya mantra)">
+                            ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् ।
+                            उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ॥
+                        </li>
+                        <li data-src="sketches/Krishna.jpg" data-title="Krishna" data-meta="Pencil on paper, 2025"
+                            data-meaning="Your right is to action alone, never to its fruits. Let the fruits not be your motive, nor be attached to inaction."
+                            data-ref="Bhagavad Gītā 2.47">
+                            कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।
+                            मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥
+                        </li>
+                        <li data-src="sketches/ShivaParvati.jpg" data-title="Shiva Parvati"
+                            data-meta="Pencil on paper, 2025"
+                            data-meaning="Fair as camphor, compassion incarnate, essence of the world, adorned with the serpent king; ever dwelling in the lotus of the heart, I bow to Bhava together with Bhavānī."
+                            data-ref="Karpūragauram stuti (traditional)">
+                            कर्पूरगौरं करुणावतारं संसारसारं भुजगेन्द्रहारम् ।
+                            सदा वसन्तं हृदयारविन्दे भवं भवानीसहितं नमामि ॥
+                        </li>
+                        <li data-src="sketches/Dattatreya.jpg" data-title="Dattatreya" data-meta="Pencil on paper, 2025"
+                            data-meaning="We meditate upon the sky-clad One, the Avadhūta; may Datta inspire our minds."
+                            data-ref="Datta Gāyatrī (traditional)">
+                            ॐ दिगम्बराय विद्महे अवधूताय धीमहि ।
+                            तन्नो दत्तः प्रचोदयात् ॥
+                        </li>
+                        <li data-src="sketches/Ganesha.jpg" data-title="Ganesha" data-meta="Pencil on paper, 2025"
+                            data-meaning="O curved-trunked, mighty One, radiant as a million suns, remove the obstacles from all my work, always."
+                            data-ref="Gaṇeśa invocation (traditional)">
+                            वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।
+                            निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+                        </li>
+                        <li data-src="sketches/KrishnaRadha.jpg" data-title="Krishna and Radha"
+                            data-meta="Pencil on paper, 2025"
+                            data-meaning="Whoever offers Me with love a leaf, a flower, a fruit or water, that offering of love I accept."
+                            data-ref="Bhagavad Gītā 9.26">
+                            पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति ।
+                            तदहं भक्त्युपहृतमश्नामि प्रयतात्मनः ॥
+                        </li>
+                        <li data-src="sketches/Saraswati.jpg" data-title="Saraswati" data-meta="Pencil on paper, 2025"
+                            data-meaning="Salutations to you, Saraswatī, giver of boons. As I begin my learning, may I always succeed."
+                            data-ref="Sarasvatī vandanā (traditional)">
+                            सरस्वति नमस्तुभ्यं वरदे कामरूपिणि ।
+                            विद्यारम्भं करिष्यामि सिद्धिर्भवतु मे सदा ॥
+                        </li>
+                        <li data-src="sketches/Krishn.jpg" data-title="Krishna" data-meta="Pencil on paper, 2025"
+                            data-meaning="Whenever righteousness declines and unrighteousness rises, O Bhārata, I manifest Myself."
+                            data-ref="Bhagavad Gītā 4.7">
+                            यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।
+                            अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥
+                        </li>
+                        <li data-src="sketches/ArjunDraupadi.jpg" data-title="Arjun and Draupadi"
+                            data-meta="Pencil on paper, 2025" data-meaning="Where there is dharma, there is victory."
+                            data-ref="Mahābhārata">
+                            यतो धर्मस्ततो जयः ॥
+                        </li>
+                        <li data-src="sketches/Abhimanyu.jpg" data-title="Abhimanyu" data-meta="Pencil on paper, 2025"
+                            data-meaning="Slain, you attain heaven; victorious, you enjoy the earth. So rise, son of Kuntī, resolved to fight."
+                            data-ref="Bhagavad Gītā 2.37 (Krishna to Arjuna, Abhimanyu's father)">
+                            हतो वा प्राप्स्यसि स्वर्गं जित्वा वा भोक्ष्यसे महीम् ।
+                            तस्मादुत्तिष्ठ कौन्तेय युद्धाय कृतनिश्चयः ॥
+                        </li>
+                        <li data-src="sketches/DRStrange.jpg" data-title="Doctor Strange"
+                            data-meta="Pencil on paper, 2025" data-ref="Marvel">
+                            A surgeon who lost the use of his hands, and found a different kind of mastery.
+                        </li>
+                        <li data-src="sketches/Kohli.jpg" data-title="Virat Kohli" data-meta="Pencil on paper, 2025"
+                            data-ref="Indian cricket">
+                            Calm under pressure, relentless in the chase.
+                        </li>
+                        <li data-src="sketches/Naruto.jpg" data-title="Naruto Uzumaki" data-meta="Pencil on paper, 2025"
+                            data-ref="Naruto, Masashi Kishimoto">
+                            The loud, stubborn ninja who never gave up on his dream.
+                        </li>
+                        <li data-src="sketches/Dhurandhar.jpg" data-title="Dhurandhar" data-meta="Pencil on paper, 2025"
+                            data-ref="Hindi film">
+                            From the film Dhurandhar.
+                        </li>
+                    </ol>
                 </div>
-                <p class="sketch-empty">New sketches are on their way.</p>
             </div>
         </section>
     </main>
