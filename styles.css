@@ -1460,3 +1460,24 @@ button {
         background: none;
     }
 }
+
+
+.tl-what a,
+.about-block p a.inst {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 3px;
+}
+
+.tl-what a:hover,
+.about-block p a.inst:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
+.tl-sub {
+    display: block;
+    font-size: .88rem;
+    color: var(--muted);
+}
