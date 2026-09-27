@@ -1481,3 +1481,8 @@ button {
     font-size: .88rem;
     color: var(--muted);
 }
+
+.about-closing {
+    margin-top: .9rem !important;
+    color: var(--muted);
+}
