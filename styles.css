@@ -1178,7 +1178,8 @@ button {
 .slide figcaption {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
+    text-align: center;
     gap: .25rem .6rem;
     padding: .8rem .25rem 0;
 }
