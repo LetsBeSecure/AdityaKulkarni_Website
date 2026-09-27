@@ -1087,6 +1087,8 @@ button {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    align-items: center;
+    text-align: center;
 }
 
 .strip-btn {
